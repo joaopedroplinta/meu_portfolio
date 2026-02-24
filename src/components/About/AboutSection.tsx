@@ -46,7 +46,7 @@ const AboutSection: React.FC = () => {
             </h4>
             <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
               Sou estudante de Bacharelado em Ciência da Computação no IFPR - Campus Pinhais, 
-              atualmente no 5º período. Desde cedo, tenho fascínio por tecnologia e como ela pode 
+              atualmente no 7º período. Desde cedo, tenho fascínio por tecnologia e como ela pode 
               transformar a sociedade.
             </p>
             <p className='text-gray-700 dark:text-gray-300 mb-8 leading-relaxed'>
