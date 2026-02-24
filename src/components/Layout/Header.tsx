@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
-import { Menu, X, Sun, Moon} from 'lucide-react';
+import { Menu, X, Sun, Moon, Download } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const navItems = [
@@ -66,7 +66,7 @@ const Header: React.FC = () => {
           João Plinta
         </Link>
 
-        <div className="hidden md:flex items-center space-x-8">
+        <div className="hidden md:flex items-center space-x-6">
           {navItems.map((item) => (
             <Link
               key={item.name}
@@ -83,6 +83,16 @@ const Header: React.FC = () => {
             </Link>
           ))}
           
+          <a
+            href="/curriculo.pdf"
+            download="Curriculo_Joao_Plinta.pdf"
+            className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-primary-500 to-secondary-500 text-white rounded-lg hover:shadow-lg transition-all duration-300 font-medium hover:scale-105"
+            aria-label="Download currículo"
+          >
+            <Download size={18} />
+            <span>Currículo</span>
+          </a>
+          
           <button
             onClick={toggleDarkMode}
             className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
@@ -96,7 +106,16 @@ const Header: React.FC = () => {
           </button>
         </div>
 
-        <div className="md:hidden flex items-center space-x-4">
+        <div className="md:hidden flex items-center space-x-3">
+          <a
+            href="/curriculo.pdf"
+            download="Curriculo_Joao_Plinta.pdf"
+            className="p-2 text-primary-500 hover:bg-primary-100 dark:hover:bg-primary-900/20 rounded-lg transition-colors"
+            aria-label="Download currículo"
+          >
+            <Download size={20} />
+          </a>
+          
           <button
             onClick={toggleDarkMode}
             className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
@@ -136,11 +155,20 @@ const Header: React.FC = () => {
                 offset={-70}
                 duration={500}
                 onClick={() => setIsOpen(false)}
-                className="py-3 text-dark dark:text-white hover:text-primary-500 cursor-pointer transition-all duration-300 font-medium border-b border-gray-100 dark:border-gray-700 last:border-none"
+                className="py-3 text-dark dark:text-white hover:text-primary-500 cursor-pointer transition-all duration-300 font-medium border-b border-gray-100 dark:border-gray-700"
               >
                 {item.name}
               </Link>
             ))}
+            <a
+              href="/curriculo.pdf"
+              download="Curriculo_Joao_Plinta.pdf"
+              onClick={() => setIsOpen(false)}
+              className="py-3 flex items-center space-x-2 text-primary-500 hover:text-primary-600 cursor-pointer transition-all duration-300 font-medium border-b border-gray-100 dark:border-gray-700"
+            >
+              <Download size={18} />
+              <span>Currículo</span>
+            </a>
           </div>
         </motion.div>
       )}
