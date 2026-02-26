@@ -28,6 +28,10 @@ const ProjectsSection: React.FC = () => {
         >
           <h2 className="text-sm font-medium text-primary-500 mb-2">MEUS TRABALHOS</h2>
           <h3 className="text-3xl md:text-4xl font-bold text-dark dark:text-white mb-4">Projetos Recentes</h3>
+          <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto pb-4">
+            Aqui estão alguns projetos em que trabalhei sendo eles academicos ou pessoais. Cada um deles reflete minha paixão por desenvolvimento e minha busca constante por aprendizado e inovação.
+          </p>
+          
           <div className="w-20 h-1 bg-primary-500 mx-auto rounded-full"></div>
         </motion.div>
 
