@@ -7,7 +7,7 @@ export function Footer() {
   return (
     <footer className="border-t border-border px-12 py-[26px] flex justify-between items-center">
       <span className="text-[0.73rem] text-muted">
-        © 2025 João Pedro Plinta — Desenvolvido com ♥ e muito café
+        © 2025 João Pedro Plinta. Todos os direitos reservados.
       </span>
 
       <div className="flex gap-[22px]">

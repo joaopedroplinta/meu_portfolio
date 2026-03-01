@@ -46,7 +46,7 @@ function HeroContent() {
       {/* Description */}
       <p className="text-muted text-[0.87rem] leading-[1.85] max-w-[400px] mb-10">
         Desenvolvedor apaixonado por criar experiências digitais elegantes e
-        funcionais. Especializado em React, TypeScript e Node.js —
+        funcionais. Especializado em <strong className="text-hi font-normal">React, TypeScript e Node.js</strong> —
         transformando ideias em código de qualidade.
       </p>
 
@@ -81,7 +81,7 @@ function HeroContent() {
 }
 
 function HeroAvatar() {
-  const stats = [["3+", "Anos exp."], ["20+", "Projetos"], ["∞", "Café"]];
+  const stats = [["2+", "Anos exp."], ["10+", "Projetos"], ["∞", "Energético"]];
 
   return (
     <div className="flex justify-center items-center relative">

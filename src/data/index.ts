@@ -11,19 +11,29 @@ export const SKILLS: SkillCategory[] = [
   {
     category: "Frontend", color: "#7c6af7",
     items: [
-      { name: "React / Next.js", pct: 90 },
+      { name: "React.js", pct: 90 },
+      { name: "JavaScript", pct: 85 },
       { name: "TypeScript",      pct: 85 },
       { name: "Tailwind CSS",    pct: 92 },
-      { name: "Framer Motion",   pct: 75 },
     ],
   },
   {
     category: "Backend", color: "#e84393",
     items: [
       { name: "Node.js / Express", pct: 80 },
-      { name: "PostgreSQL",        pct: 75 },
       { name: "REST APIs",         pct: 88 },
-      { name: "Prisma ORM",        pct: 72 },
+      { name: "PHP",               pct: 75 },
+      { name: "Java",              pct: 70 },
+      { name: "Python",            pct: 85 },
+      { name: "C++",               pct: 70 },
+    ],
+  },
+  {
+    category: "Data Base", color: "#f39c12",
+    items: [
+      { name: "PostgreSQL", pct: 75 },
+      { name: "MongoDB",    pct: 65 },
+      { name: "MySQL",      pct: 70 },
     ],
   },
   {
@@ -53,36 +63,37 @@ export const PROJECTS: Project[] = [
   {
     featured: true,
     emoji: "🚀",
-    title: "Projeto Principal",
-    description: "Sua aplicação mais impactante vai aqui. Descreva o problema resolvido, o impacto gerado e as decisões técnicas tomadas. Recrutadores querem entender o raciocínio, não só as tecnologias.",
-    tags: ["React", "Node.js", "PostgreSQL", "TypeScript"],
+    title: "FinanTrack",
+    description: "O projeto consiste em uma aplicação web completa, utilizando tecnologias modernas para o front-end e back-end. O objetivo é demonstrar as habilidades adquiridas ao longo do curso.",
+    tags: ["React", "Node.js", "MySQL", "TypeScript"],
     gradientFrom: "#0d1b2a", gradientTo: "#16213e",
-    demo: "#", github: "https://github.com/joaopedroplinta",
+    demo: "#", github: "https://github.com/joaopedroplinta/projeto-final-web",
   },
   {
     featured: false,
     emoji: "⚡",
-    title: "Projeto 2",
-    description: "Segundo projeto mais relevante. Destaque o diferencial técnico e o valor entregue.",
-    tags: ["React", "TypeScript", "API"],
+    title: "NumVision",
+    description: "Aplicação fullstack que permite desenhar dígitos em um canvas e classificá-los usando um modelo CNN treinado no MNIST.",
+    tags: ["React", "Python", "FastAPI", "Flask", "TensorFlow"],
     gradientFrom: "#1a0a2e", gradientTo: "#2d1b69",
-    demo: "#", github: "#",
+    demo: "#", github: "https://github.com/joaopedroplinta/NumVision",
   },
   {
     featured: false,
     emoji: "🎯",
-    title: "Projeto 3",
-    description: "Mais um projeto que demonstra versatilidade e resolução de problemas reais.",
-    tags: ["Next.js", "Tailwind", "Prisma"],
+    title: "Caixeiro Viajante",
+    description: "Solução para o Problema do Caixeiro Viajante (TSP - Traveling Salesman Problem), um dos problemas clássicos de otimização computacional.",
+    tags: ["Python", "Algoritmos", "Otimização"],
     gradientFrom: "#0a1f1f", gradientTo: "#0d3333",
-    demo: "#", github: "#",
+    demo: "#", github: "https://github.com/joaopedroplinta/caixeiro-viajante",
   },
 ];
 
 export interface TimelineItem { year: string; title: string; desc: string; }
 
 export const TIMELINE: TimelineItem[] = [
-  { year: "2024 — presente", title: "Desenvolvedor Full Stack",           desc: "Projetos freelance e colaborações, focado em React + Node.js"                   },
-  { year: "2022 — 2024",     title: "Graduação em Ciência da Computação", desc: "Fundamentos sólidos em algoritmos, estruturas de dados e engenharia de software" },
-  { year: "2021",            title: "Primeiros passos",                   desc: "HTML, CSS, JavaScript — o início da jornada dev"                                  },
+  { year: "2025 — presente", title: "Estagiário em Dev. Full-Stack", desc: "Atuação como estagiário em desenvolvimento full-stack, trabalhando com a stack PHP, JavaScript e PostgreSQL."},
+  { year: "2024 — 2025", title: "Estagiário em Suporte de sistemas e hardware", desc: "Atuação como estagiário em suporte técnico de sistemas e hardware." },
+  { year: "2023 — 2026", title: "Graduação em Ciência da Computação", desc: "Fundamentos sólidos e experiências práticas em algoritmos, estruturas de dados, engenharia de software, redes, otimização de performance e arquitetura de sistemas." },
+  { year: "2018", title: "Primeiros passos", desc: "Primeiros passos com programação." },
 ];

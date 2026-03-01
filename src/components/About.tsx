@@ -13,7 +13,7 @@ export function About() {
             <p>
               Olá! Sou o{" "}
               <strong className="text-hi font-normal">João Pedro Plinta</strong>
-              , desenvolvedor Full Stack baseado no Brasil. Tenho paixão por
+              , desenvolvedor Full Stack. Tenho paixão por
               construir aplicações web modernas que unem performance técnica com
               experiências excepcionais.
             </p>
@@ -24,9 +24,11 @@ export function About() {
               {" "}— do front ao back, passando por banco de dados e infra.
             </p>
             <p>
-              Quando não estou codando, estou aprendendo algo novo, contribuindo
-              para open source ou tomando café enquanto leio sobre arquitetura de
-              software.
+              Mas também trabalho com {" "} <strong className="text-hi font-normal">PHP</strong>, especialmente em projetos legados e integrações. Acredito
+              que a versatilidade é essencial para um desenvolvedor moderno, e estou sempre aberto a aprender novas tecnologias e linguagens.
+            </p>
+            <p>
+              Quando não estou codando, estou aprendendo algo novo.
             </p>
           </div>
         </FadeUp>
