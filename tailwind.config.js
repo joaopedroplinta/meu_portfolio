@@ -1,49 +1,38 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
-  darkMode: 'class',
+  content: ["./index.html", "./src/**/*.{ts,tsx}"],
   theme: {
     extend: {
       colors: {
-        primary: {
-          50: '#e6f1ff',
-          100: '#cce3ff',
-          200: '#99c7ff',
-          300: '#66abff',
-          400: '#338fff',
-          500: '#0073ff',
-          600: '#005ccc',
-          700: '#004599',
-          800: '#002e66',
-          900: '#001733'
-        },
-        secondary: {
-          50: '#e6fff9',
-          100: '#ccfff3',
-          200: '#99ffe7',
-          300: '#66ffdb',
-          400: '#33ffcf',
-          500: '#00ffc3',
-          600: '#00cc9c',
-          700: '#009975',
-          800: '#00664e',
-          900: '#003327'
-        },
-        dark: '#0a192f',
-        light: '#f8f9fa'
+        bg:      "#0a0a0f",
+        surface: "#111118",
+        card:    "#16161f",
+        border:  "#1e1e2e",
+        accent:  "#7c6af7",
+        accent2: "#e84393",
+        accent3: "#3ecfcf",
+        hi:      "#f0f0ff",
+        muted:   "#6b6b80",
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-      },
-      animation: {
-        'float': 'float 3s ease-in-out infinite',
+        syne:       ["Syne", "sans-serif"],
+        mono:       ["DM Mono", "monospace"],
+        serif:      ["Instrument Serif", "serif"],
       },
       keyframes: {
-        float: {
-          '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-10px)' },
-        }
-      }
+        blink: {
+          "0%, 100%": { opacity: "1", transform: "scale(1)" },
+          "50%":      { opacity: "0.5", transform: "scale(1.5)" },
+        },
+        fadeUp: {
+          from: { opacity: "0", transform: "translateY(28px)" },
+          to:   { opacity: "1", transform: "translateY(0)" },
+        },
+      },
+      animation: {
+        blink:   "blink 2s infinite",
+        fadeUp:  "fadeUp 0.7s ease forwards",
+      },
     },
   },
   plugins: [],
