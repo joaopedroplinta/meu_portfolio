@@ -66,7 +66,7 @@ function HeroContent() {
         </a>
 
         <a
-          href="/curriculo.pdf"
+          href="/JoaoPedroPlinta_curriculo.pdf"
           download="JoaoPedroPlinta_curriculo.pdf"
           className="
             inline-flex items-center gap-2

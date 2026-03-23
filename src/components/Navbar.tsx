@@ -52,7 +52,7 @@ export function Navbar() {
           ))}
 
           <a
-            href="/curriculo.pdf"
+            href="/JoaoPedroPlinta_curriculo.pdf"
             download="JoaoPedroPlinta_curriculo.pdf"
             className="
               inline-flex items-center gap-2
@@ -121,7 +121,7 @@ export function Navbar() {
         ))}
         <div className="flex gap-3 px-6 py-4">
           <a
-            href="/curriculo.pdf"
+            href="/JoaoPedroPlinta_curriculo.pdf"
             download="JoaoPedroPlinta_curriculo.pdf"
             className="
               inline-flex items-center gap-2
