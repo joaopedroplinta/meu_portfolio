@@ -5,8 +5,8 @@ const FOOTER_LINKS = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-border px-12 py-[26px] flex justify-between items-center">
-      <span className="text-[0.73rem] text-muted">
+    <footer className="border-t border-border px-5 sm:px-12 py-[26px] flex flex-col sm:flex-row justify-between items-center gap-3">
+      <span className="text-[0.73rem] text-muted text-center sm:text-left">
         © 2025 João Pedro Plinta. Todos os direitos reservados.
       </span>
 

@@ -2,9 +2,9 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="max-w-[1160px] mx-auto px-12 min-h-screen flex items-center"
+      className="max-w-[1160px] mx-auto px-5 sm:px-12 min-h-screen flex items-center"
     >
-      <div className="grid grid-cols-2 gap-[72px] items-center w-full">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-[72px] items-center w-full pt-24 md:pt-0">
         <HeroContent />
         <HeroAvatar />
       </div>
@@ -51,7 +51,7 @@ function HeroContent() {
       </p>
 
       {/* CTAs */}
-      <div className="flex items-center gap-4">
+      <div className="flex flex-wrap items-center gap-3 sm:gap-4">
         <a
           href="#projects"
           className="
@@ -65,7 +65,6 @@ function HeroContent() {
           Ver Projetos →
         </a>
 
-        {/* Download CV */}
         <a
           href="/curriculo.pdf"
           download="JoaoPedroPlinta_curriculo.pdf"
@@ -105,25 +104,25 @@ function HeroAvatar() {
   const stats = [["2+", "Anos exp."], ["10+", "Projetos"], ["∞", "Energético"]];
 
   return (
-    <div className="flex justify-center items-center relative">
+    <div className="flex justify-center items-center relative order-first md:order-last">
       {/* Gradient ring */}
       <div
-        className="w-[280px] h-[280px] rounded-full p-0.5"
+        className="w-[220px] h-[220px] sm:w-[260px] sm:h-[260px] md:w-[280px] md:h-[280px] rounded-full p-0.5"
         style={{ background: "linear-gradient(135deg, #7c6af7, #e84393, #3ecfcf)" }}
       >
-        <div className="w-full h-full rounded-full bg-surface flex items-center justify-center font-syne font-extrabold text-[5rem] text-accent">
+        <div className="w-full h-full rounded-full bg-surface flex items-center justify-center font-syne font-extrabold text-[4rem] md:text-[5rem] text-accent">
           JP
         </div>
       </div>
 
       {/* Stats card */}
-      <div className="absolute -bottom-3.5 -right-3.5 bg-card border border-border rounded-xl px-5 py-3.5 flex gap-5">
+      <div className="absolute -bottom-3.5 -right-3.5 bg-card border border-border rounded-xl px-4 sm:px-5 py-3 sm:py-3.5 flex gap-3 sm:gap-5">
         {stats.map(([num, label]) => (
           <div key={label} className="text-center">
-            <div className="font-syne font-extrabold text-[1.4rem] text-accent leading-none">
+            <div className="font-syne font-extrabold text-[1.1rem] sm:text-[1.4rem] text-accent leading-none">
               {num}
             </div>
-            <div className="text-[0.6rem] text-muted uppercase tracking-[0.1em] mt-1">
+            <div className="text-[0.55rem] sm:text-[0.6rem] text-muted uppercase tracking-[0.1em] mt-1">
               {label}
             </div>
           </div>

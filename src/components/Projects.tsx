@@ -60,7 +60,7 @@ function FeaturedCard({ p }: { p: Project }) {
       onMouseEnter={() => setHov(true)}
       onMouseLeave={() => setHov(false)}
       className={`
-        col-span-2 grid grid-cols-2
+        col-span-1 sm:col-span-2 grid grid-cols-1 sm:grid-cols-2
         bg-card rounded-2xl overflow-hidden
         border transition-[opacity,transform,border-color] duration-[0.7s,0.7s,0.2s]
         ${hov ? "border-accent" : "border-border"}
@@ -69,7 +69,7 @@ function FeaturedCard({ p }: { p: Project }) {
     >
       {/* Image */}
       <div
-        className="relative min-h-[260px] flex items-center justify-center text-[4rem]"
+        className="relative min-h-[200px] sm:min-h-[260px] flex items-center justify-center text-[4rem]"
         style={{ background: `linear-gradient(135deg, ${p.gradientFrom}, ${p.gradientTo})` }}
       >
         <div className="absolute inset-0 bg-gradient-to-br from-accent/15 to-accent2/10" />
@@ -77,9 +77,9 @@ function FeaturedCard({ p }: { p: Project }) {
       </div>
 
       {/* Body */}
-      <div className="p-7">
+      <div className="p-6 sm:p-7">
         <TagList tags={p.tags} featured />
-        <h3 className="font-syne font-extrabold text-[1.3rem] text-hi tracking-tight mb-2.5">
+        <h3 className="font-syne font-extrabold text-[1.2rem] sm:text-[1.3rem] text-hi tracking-tight mb-2.5">
           {p.title}
         </h3>
         <p className="text-[0.82rem] text-muted leading-[1.75] mb-6">
@@ -110,7 +110,7 @@ function SmallCard({ p }: { p: Project }) {
     >
       {/* Image */}
       <div
-        className="relative h-[170px] flex items-center justify-center text-[3rem]"
+        className="relative h-[160px] sm:h-[170px] flex items-center justify-center text-[3rem]"
         style={{ background: `linear-gradient(135deg, ${p.gradientFrom}, ${p.gradientTo})` }}
       >
         <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-accent3/[0.08]" />
@@ -118,9 +118,9 @@ function SmallCard({ p }: { p: Project }) {
       </div>
 
       {/* Body */}
-      <div className="p-[22px]">
+      <div className="p-[20px] sm:p-[22px]">
         <TagList tags={p.tags} />
-        <h3 className="font-syne font-bold text-[1.1rem] text-hi tracking-tight mb-2">
+        <h3 className="font-syne font-bold text-[1.05rem] sm:text-[1.1rem] text-hi tracking-tight mb-2">
           {p.title}
         </h3>
         <p className="text-[0.8rem] text-muted leading-[1.7] mb-[18px]">
@@ -134,9 +134,9 @@ function SmallCard({ p }: { p: Project }) {
 
 export function Projects() {
   return (
-    <section id="projects" className="max-w-[1160px] mx-auto px-12 py-[100px]">
+    <section id="projects" className="max-w-[1160px] mx-auto px-5 sm:px-12 py-[80px] sm:py-[100px]">
       <SectionHeader num="03" title="Projetos" />
-      <div className="grid grid-cols-2 gap-[18px]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-[18px]">
         {PROJECTS.map((p, i) =>
           p.featured
             ? <FeaturedCard key={i} p={p} />

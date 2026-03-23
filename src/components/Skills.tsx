@@ -48,9 +48,9 @@ function SkillCard({ category, color, items }: SkillCategory) {
 
 export function Skills() {
   return (
-    <section id="skills" className="max-w-[1160px] mx-auto px-12 py-[100px]">
+    <section id="skills" className="max-w-[1160px] mx-auto px-5 sm:px-12 py-[80px] sm:py-[100px]">
       <SectionHeader num="02" title="Habilidades" />
-      <div className="grid grid-cols-3 gap-[18px]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[18px]">
         {SKILLS.map((cat, i) => (
           <FadeUp key={i} delay={i * 0.1}>
             <SkillCard {...cat} />

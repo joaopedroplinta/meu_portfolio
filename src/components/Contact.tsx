@@ -22,14 +22,14 @@ function ContactLink({ icon, label, href }: ContactLinkProps) {
       <div className="w-8 h-8 bg-accent/10 rounded-lg flex items-center justify-center shrink-0 text-base">
         {icon}
       </div>
-      {label}
+      <span className="truncate">{label}</span>
     </a>
   );
 }
 
 export function Contact() {
   return (
-    <section id="contact" className="max-w-[1160px] mx-auto px-12 py-[100px]">
+    <section id="contact" className="max-w-[1160px] mx-auto px-5 sm:px-12 py-[80px] sm:py-[100px]">
       <SectionHeader num="04" title="Contato" />
 
       <FadeUp className="flex flex-col items-center text-center">

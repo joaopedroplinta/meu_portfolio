@@ -3,10 +3,10 @@ import { FadeUp, SectionHeader } from "./UI";
 
 export function About() {
   return (
-    <section id="about" className="max-w-[1160px] mx-auto px-12 py-[100px]">
+    <section id="about" className="max-w-[1160px] mx-auto px-5 sm:px-12 py-[80px] sm:py-[100px]">
       <SectionHeader num="01" title="Sobre mim" />
 
-      <div className="grid grid-cols-2 gap-[72px] items-start">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-[72px] items-start">
         {/* Bio */}
         <FadeUp>
           <div className="text-muted text-[0.88rem] leading-[1.9] space-y-[18px]">
