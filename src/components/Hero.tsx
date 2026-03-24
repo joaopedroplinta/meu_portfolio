@@ -1,3 +1,7 @@
+import { useTypewriter } from "../hooks";
+
+const ROLES = ["Full Stack Dev", "React Dev", "TypeScript Dev", "Node.js Dev", "PHP Dev", "Tech Enthusiast"];
+
 export function Hero() {
   return (
     <section
@@ -13,9 +17,10 @@ export function Hero() {
 }
 
 function HeroContent() {
+  const role = useTypewriter(ROLES, 50, 50, 2000);
+
   return (
     <div>
-      {/* Available badge */}
       <div className="
         inline-flex items-center gap-2 mb-7
         bg-accent3/10 border border-accent3/30 text-accent3
@@ -25,32 +30,30 @@ function HeroContent() {
         Disponível para oportunidades
       </div>
 
-      {/* Label */}
-      <div className="flex items-center gap-3 mb-5 text-accent text-[0.67rem] tracking-[0.2em] uppercase">
+      <div className="flex items-center gap-3 mb-5 text-accent text-[0.67rem] tracking-[0.2em]">
         <span className="w-7 h-px bg-accent" />
-        Desenvolvedor Full Stack
+        <span>
+          {role}
+          <span className="inline-block w-[2px] h-[0.75em] bg-accent ml-[2px] align-middle animate-blink" />
+        </span>
       </div>
 
-      {/* Name */}
       <h1 className="font-syne font-extrabold text-hi leading-[0.95] tracking-[-0.04em] mb-5"
         style={{ fontSize: "clamp(2.8rem, 5.5vw, 5rem)" }}>
         João Pedro
         <span className="block text-accent">Plinta.</span>
       </h1>
 
-      {/* Role */}
       <p className="font-serif italic text-[1.3rem] text-muted mb-6">
         Building things for the web.
       </p>
 
-      {/* Description */}
       <p className="text-muted text-[0.87rem] leading-[1.85] max-w-[400px] mb-10">
         Desenvolvedor apaixonado por criar experiências digitais elegantes e
         funcionais. Especializado em <strong className="text-hi font-normal">React, TypeScript e Node.js</strong> —
         transformando ideias em código de qualidade.
       </p>
 
-      {/* CTAs */}
       <div className="flex flex-wrap items-center gap-3 sm:gap-4">
         <a
           href="#projects"
@@ -105,7 +108,6 @@ function HeroAvatar() {
 
   return (
     <div className="flex justify-center items-center relative order-first md:order-last">
-      {/* Gradient ring */}
       <div
         className="w-[220px] h-[220px] sm:w-[260px] sm:h-[260px] md:w-[280px] md:h-[280px] rounded-full p-0.5"
         style={{ background: "linear-gradient(135deg, #7c6af7, #e84393, #3ecfcf)" }}
@@ -115,7 +117,6 @@ function HeroAvatar() {
         </div>
       </div>
 
-      {/* Stats card */}
       <div className="absolute -bottom-3.5 -right-3.5 bg-card border border-border rounded-xl px-4 sm:px-5 py-3 sm:py-3.5 flex gap-3 sm:gap-5">
         {stats.map(([num, label]) => (
           <div key={label} className="text-center">
