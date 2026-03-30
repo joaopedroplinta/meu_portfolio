@@ -3,10 +3,15 @@ import { PROJECTS, Project } from "../data";
 import { useInView } from "../hooks";
 import { SectionHeader } from "./UI";
 
-function ProjectLinks({ demo, github }: { demo: string; github: string }) {
+function ProjectLinks({ demo, github }: { demo: string; github?: string }) {
+  const links = [
+    { href: demo, label: "Demo →", show: demo && demo !== "#" },
+    { href: github, label: "GitHub →", show: github && github !== "#" },
+  ].filter(l => l.show);
+
   return (
     <div className="flex gap-[18px]">
-      {[{ href: demo, label: "Demo →" }, { href: github, label: "GitHub →" }].map((l) => (
+      {links.map((l) => (
         <a
           key={l.label}
           href={l.href}
@@ -69,11 +74,15 @@ function FeaturedCard({ p }: { p: Project }) {
     >
       {/* Image */}
       <div
-        className="relative min-h-[200px] sm:min-h-[260px] flex items-center justify-center text-[4rem]"
+        className="relative min-h-[200px] sm:min-h-[260px] flex items-center justify-center text-[4rem] overflow-hidden"
         style={{ background: `linear-gradient(135deg, ${p.gradientFrom}, ${p.gradientTo})` }}
       >
         <div className="absolute inset-0 bg-gradient-to-br from-accent/15 to-accent2/10" />
-        <span className="relative z-10">{p.emoji}</span>
+        {p.image ? (
+          <img src={p.image} alt={p.title} className="absolute inset-0 w-full h-full object-cover z-0" />
+        ) : (
+          <span className="relative z-10">{p.emoji}</span>
+        )}
       </div>
 
       {/* Body */}
@@ -110,11 +119,15 @@ function SmallCard({ p }: { p: Project }) {
     >
       {/* Image */}
       <div
-        className="relative h-[160px] sm:h-[170px] flex items-center justify-center text-[3rem]"
+        className="relative h-[160px] sm:h-[170px] flex items-center justify-center text-[3rem] overflow-hidden"
         style={{ background: `linear-gradient(135deg, ${p.gradientFrom}, ${p.gradientTo})` }}
       >
         <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-accent3/[0.08]" />
-        <span className="relative z-10">{p.emoji}</span>
+        {p.image ? (
+          <img src={p.image} alt={p.title} className="absolute inset-0 w-full h-full object-cover z-0" />
+        ) : (
+          <span className="relative z-10">{p.emoji}</span>
+        )}
       </div>
 
       {/* Body */}

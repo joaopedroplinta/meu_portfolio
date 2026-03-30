@@ -49,17 +49,27 @@ export const SKILLS: SkillCategory[] = [
 
 export interface Project {
   featured: boolean;
-  emoji: string;
+  emoji?: string;
+  image?: string;
   title: string;
   description: string;
   tags: string[];
   gradientFrom: string;
   gradientTo: string;
   demo: string;
-  github: string;
+  github?: string;
 }
 
 export const PROJECTS: Project[] = [
+  {
+    featured: true,
+    image: "/projeto-salao.png",
+    title: "Lash Studio System",
+    description: "Sistema fullstack para gestão de estética, com agendamento online, autenticação via Sanctum e painel administrativo completo.",
+    tags: ["React", "Laravel", "PHP", "PostgreSQL", "TypeScript", "Tailwind"],
+    gradientFrom: "#2d1b69", gradientTo: "#b82e8d",
+    demo: "https://lash-studio-web.vercel.app/",
+  },
   {
     featured: true,
     emoji: "🚀",
