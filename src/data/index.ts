@@ -68,7 +68,7 @@ export const PROJECTS: Project[] = [
     description: "Sistema fullstack para gestão de estética, com agendamento online, autenticação via Sanctum e painel administrativo completo.",
     tags: ["React", "Laravel", "PHP", "PostgreSQL", "TypeScript", "Tailwind"],
     gradientFrom: "#2d1b69", gradientTo: "#b82e8d",
-    demo: "https://lash-studio-web.vercel.app/",
+    demo: "https://lash-studio-web-production.up.railway.app/admin",
   },
   {
     featured: true,
