@@ -1,58 +1,52 @@
 export const NAV_LINKS = [
-  { href: "#about",    label: "Sobre"    },
-  { href: "#skills",   label: "Skills"   },
-  { href: "#projects", label: "Projetos" },
+  { href: "#about",    label: "Sobre"        },
+  { href: "#skills",   label: "Dependencies" },
+  { href: "#projects", label: "Releases"     },
 ];
 
 export interface SkillItem     { name: string; pct: number; }
-export interface SkillCategory { category: string; color: string; items: SkillItem[]; }
+export interface DependencyGroup { name: string; comment: string; items: SkillItem[]; }
 
-export const SKILLS: SkillCategory[] = [
+export const DEPENDENCIES: DependencyGroup[] = [
   {
-    category: "Frontend", color: "#7c6af7",
+    name: "dependencies",
+    comment: "// stack do dia a dia — o que sustenta produção",
     items: [
-      { name: "React.js", pct: 90 },
-      { name: "JavaScript", pct: 85 },
-      { name: "TypeScript",      pct: 85 },
-      { name: "Tailwind CSS",    pct: 92 },
+      { name: "react",       pct: 90 },
+      { name: "typescript",  pct: 85 },
+      { name: "node",        pct: 80 },
+      { name: "tailwindcss", pct: 92 },
+      { name: "postgresql",  pct: 75 },
+      { name: "rest-apis",   pct: 88 },
     ],
   },
   {
-    category: "Backend", color: "#e84393",
+    name: "devDependencies",
+    comment: "// ferramentas e stacks auxiliares",
     items: [
-      { name: "Node.js / Express", pct: 80 },
-      { name: "REST APIs",         pct: 88 },
-      { name: "PHP",               pct: 75 },
-      { name: "Java",              pct: 70 },
-      { name: "Python",            pct: 85 },
-      { name: "C++",               pct: 70 },
-    ],
-  },
-  {
-    category: "Data Base", color: "#f39c12",
-    items: [
-      { name: "PostgreSQL", pct: 75 },
-      { name: "MongoDB",    pct: 65 },
-      { name: "MySQL",      pct: 70 },
-    ],
-  },
-  {
-    category: "Ferramentas", color: "#3ecfcf",
-    items: [
-      { name: "Git / GitHub",    pct: 88 },
-      { name: "Docker",          pct: 65 },
-      { name: "Figma",           pct: 70 },
-      { name: "Vercel / Deploy", pct: 85 },
+      { name: "php",     pct: 75 },
+      { name: "python",  pct: 85 },
+      { name: "java",    pct: 70 },
+      { name: "cpp",     pct: 70 },
+      { name: "mongodb", pct: 65 },
+      { name: "mysql",   pct: 70 },
+      { name: "docker",  pct: 65 },
+      { name: "git",     pct: 88 },
+      { name: "figma",   pct: 70 },
+      { name: "vercel",  pct: 85 },
     ],
   },
 ];
 
 export interface Project {
   featured: boolean;
+  latest?: boolean;
+  version: string;
   emoji?: string;
   image?: string;
   title: string;
   description: string;
+  highlights?: string[];
   tags: string[];
   gradientFrom: string;
   gradientTo: string;
@@ -63,39 +57,53 @@ export interface Project {
 export const PROJECTS: Project[] = [
   {
     featured: true,
+    latest: true,
+    version: "v1.0.0",
     image: "/plana.png",
     title: "Plana",
-    description: "SaaS multi-tenant de agendamentos para negócios de serviço — agendamento online, gestão de equipe, pacotes de sessões e pagamentos via PIX/cartão, com painel administrativo completo.",
+    description: "SaaS multi-tenant de agendamentos para negócios de serviço, do zero ao ar.",
+    highlights: [
+      "Agendamento online com isolamento multi-tenant de verdade (policies + scopes em toda query)",
+      "Pacotes de sessões e assinatura recorrente, pagamento via PIX/cartão",
+      "Deploy real em produção: Docker, CI com build/testes/E2E, Render + Neon",
+    ],
     tags: ["Next.js", "Laravel", "PostgreSQL", "TypeScript", "Tailwind", "Docker"],
-    gradientFrom: "#003d3d", gradientTo: "#5a8f1f",
+    gradientFrom: "#121319", gradientTo: "#1f2440",
     demo: "https://plana-web.onrender.com/",
     github: "https://github.com/joaopedroplinta/Plana",
   },
   {
     featured: true,
+    version: "v1.2.0",
     emoji: "🚀",
     title: "FinanTrack",
-    description: "O projeto consiste em uma aplicação web completa, utilizando tecnologias modernas para o front-end e back-end. O objetivo é demonstrar as habilidades adquiridas ao longo do curso.",
+    description: "Aplicação web completa de controle financeiro, front-end e back-end integrados.",
+    highlights: [
+      "CRUD completo de transações com autenticação de usuário",
+      "Dashboard com resumo de gastos e receitas em tempo real",
+    ],
     tags: ["React", "Node.js", "MySQL", "TypeScript"],
-    gradientFrom: "#0d1b2a", gradientTo: "#16213e",
+    gradientFrom: "#121319", gradientTo: "#1f2440",
     demo: "#", github: "https://github.com/joaopedroplinta/projeto-final-web",
   },
   {
     featured: false,
+    version: "v0.9.0",
     emoji: "⚡",
     title: "NumVision",
-    description: "Aplicação fullstack que permite desenhar dígitos em um canvas e classificá-los usando um modelo CNN treinado no MNIST.",
+    description: "Desenha um dígito num canvas e classifica com uma CNN treinada no MNIST.",
     tags: ["React", "Python", "FastAPI", "Flask", "TensorFlow"],
-    gradientFrom: "#1a0a2e", gradientTo: "#2d1b69",
+    gradientFrom: "#121319", gradientTo: "#1f2440",
     demo: "#", github: "https://github.com/joaopedroplinta/NumVision",
   },
   {
     featured: false,
+    version: "v0.3.0",
     emoji: "🎯",
     title: "Caixeiro Viajante",
-    description: "Solução para o Problema do Caixeiro Viajante (TSP - Traveling Salesman Problem), um dos problemas clássicos de otimização computacional.",
+    description: "Solução pro Problema do Caixeiro Viajante (TSP), clássico de otimização.",
     tags: ["Python", "Algoritmos", "Otimização"],
-    gradientFrom: "#0a1f1f", gradientTo: "#0d3333",
+    gradientFrom: "#121319", gradientTo: "#1f2440",
     demo: "#", github: "https://github.com/joaopedroplinta/caixeiro-viajante",
   },
 ];

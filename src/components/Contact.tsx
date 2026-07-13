@@ -13,13 +13,13 @@ function ContactLink({ icon, label, href }: ContactLinkProps) {
       onMouseEnter={() => setHov(true)}
       onMouseLeave={() => setHov(false)}
       className={`
-        flex items-center gap-3.5 no-underline text-[0.8rem]
-        px-4 py-[13px] rounded-[10px] bg-card
+        flex items-center gap-3.5 no-underline font-mono text-[0.8rem]
+        px-4 py-[13px] rounded-lg bg-card
         border transition-all duration-200
         ${hov ? "border-accent text-accent" : "border-border text-hi"}
       `}
     >
-      <div className="w-8 h-8 bg-accent/10 rounded-lg flex items-center justify-center shrink-0 text-base">
+      <div className="w-8 h-8 bg-accent/10 rounded-md flex items-center justify-center shrink-0 text-base">
         {icon}
       </div>
       <span className="truncate">{label}</span>
@@ -30,21 +30,24 @@ function ContactLink({ icon, label, href }: ContactLinkProps) {
 export function Contact() {
   return (
     <section id="contact" className="max-w-[1160px] mx-auto px-5 sm:px-12 py-[80px] sm:py-[100px]">
-      <SectionHeader num="04" title="Contato" />
+      <SectionHeader title="Contribuindo" />
 
       <FadeUp className="flex flex-col items-center text-center">
+        <p className="font-mono text-[0.65rem] text-accent tracking-wide mb-4">maintainer:</p>
+
         <h3
-          className="font-syne font-extrabold text-hi leading-[1.05] tracking-[-0.04em] mb-5"
-          style={{ fontSize: "clamp(1.8rem, 3.5vw, 3rem)" }}
+          className="font-display font-extrabold text-hi leading-[1.1] tracking-[-0.02em] mb-5"
+          style={{ fontSize: "clamp(1.6rem, 3.2vw, 2.6rem)" }}
         >
           Vamos{" "}
           <span className="font-serif italic text-accent">trabalhar</span>
           {" "}juntos?
         </h3>
 
-        <p className="text-[0.84rem] text-muted leading-[1.85] mb-9 max-w-[460px]">
+        <p className="font-prose text-[0.84rem] text-muted leading-[1.85] mb-9 max-w-[460px]">
           Seja para um novo projeto, uma oportunidade de emprego ou só uma
-          conversa sobre tech — minha caixa de entrada está aberta.
+          conversa sobre tech — minha caixa de entrada está aberta. Sem burocracia,
+          sem template de issue.
         </p>
 
         <div className="flex flex-col gap-2.5 w-full max-w-[480px]">

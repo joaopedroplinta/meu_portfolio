@@ -1,13 +1,34 @@
-@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&family=Instrument+Serif:ital@0;1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --bg: #0b0c11;
+  --surface: #121319;
+  --card: #16171f;
+  --border: #212230;
+  --hi: #eef0fa;
+  --muted: #7d8094;
+  --accent: #7b6ef6;   /* violeta — cor primária */
+  --accent2: #4f8ef7;  /* azul — semântico, links/dados secundários */
+  --accent3: #3ecfcf;  /* ciano — semântico, "adicionado"/positivo */
+}
+
 html { scroll-behavior: smooth; }
 
 ::-webkit-scrollbar       { width: 4px; }
-::-webkit-scrollbar-track { background: #0a0a0f; }
-::-webkit-scrollbar-thumb { background: #1e1e2e; border-radius: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
 
 input, textarea { color-scheme: dark; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

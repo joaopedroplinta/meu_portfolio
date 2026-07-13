@@ -7,12 +7,12 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-border px-5 sm:px-12 py-[26px] flex flex-col sm:flex-row justify-between items-center gap-3">
-      <span className="text-[0.73rem] text-muted text-center sm:text-left">
-        © {year} João Pedro Plinta. Todos os direitos reservados.
+    <footer className="border-t border-border px-5 sm:px-12 py-[22px] flex flex-col sm:flex-row justify-between items-center gap-3 font-mono">
+      <span className="text-[0.7rem] text-muted text-center sm:text-left">
+        MIT License · © {year} João Pedro Plinta
       </span>
 
-      <div className="flex gap-[22px]">
+      <div className="flex gap-[20px]">
         {FOOTER_LINKS.map((l) => (
           <a
             key={l.href}
@@ -21,11 +21,10 @@ export function Footer() {
             rel="noreferrer"
             className="
               text-[0.68rem] text-muted no-underline
-              tracking-[0.1em] uppercase
               transition-colors duration-200 hover:text-accent
             "
           >
-            {l.label}
+            {l.label.toLowerCase()}
           </a>
         ))}
       </div>

@@ -27,18 +27,17 @@ export function FadeUp({ children, delay = 0, className = "" }: FadeUpProps) {
 
 // ── SectionHeader ────────────────────────────────────────────────────────────
 interface SectionHeaderProps {
-  num: string;
   title: string;
 }
 
-export function SectionHeader({ num, title }: SectionHeaderProps) {
+export function SectionHeader({ title }: SectionHeaderProps) {
   return (
     <FadeUp className="flex items-center gap-4 mb-14">
-      <span className="font-mono text-[0.68rem] text-accent tracking-[0.2em]">
-        {num}
-      </span>
-      <h2 className="font-syne font-extrabold text-[2rem] text-hi tracking-tight leading-none">
-        {title}
+      <h2 className="font-display font-extrabold text-[1.6rem] sm:text-[1.9rem] tracking-tight leading-none whitespace-nowrap">
+        <span className="text-muted">## </span>
+        <span className="text-accent">[</span>
+        <span className="text-hi">{title}</span>
+        <span className="text-accent">]</span>
       </h2>
       <div className="flex-1 h-px bg-border" />
     </FadeUp>

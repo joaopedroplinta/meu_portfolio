@@ -2,15 +2,22 @@ import { useTypewriter } from "../hooks";
 
 const ROLES = ["Full Stack Dev", "React Dev", "TypeScript Dev", "Node.js Dev", "PHP Dev", "Tech Enthusiast"];
 
+const LOG_LINES = [
+  { hash: "a1b2c3d", msg: "feat: lança Plana em produção (Docker + CI/CD)" },
+  { hash: "9f8e7d6", msg: "fix: corrige timezone nos agendamentos" },
+  { hash: "5c4b3a2", msg: "feat: isolamento multi-tenant em todas as policies" },
+  { hash: "3d2e1f0", msg: "docs: atualiza CHANGELOG antes do release" },
+];
+
 export function Hero() {
   return (
     <section
       id="hero"
       className="max-w-[1160px] mx-auto px-5 sm:px-12 min-h-screen flex items-center"
     >
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-[72px] items-center w-full pt-24 md:pt-0">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-[64px] items-center w-full pt-24 md:pt-0">
         <HeroContent />
-        <HeroAvatar />
+        <TerminalCard />
       </div>
     </section>
   );
@@ -22,50 +29,58 @@ function HeroContent() {
   return (
     <div>
       <div className="
-        inline-flex items-center gap-2 mb-7
+        inline-flex items-center gap-2 mb-6
         bg-accent3/10 border border-accent3/30 text-accent3
-        px-[14px] py-[6px] rounded-full text-[0.67rem] tracking-[0.12em]
+        px-[12px] py-[5px] rounded font-mono text-[0.65rem] tracking-tight
       ">
         <span className="w-1.5 h-1.5 bg-accent3 rounded-full animate-blink" />
-        Disponível para oportunidades
+        v∞.0.0 · sempre no ar
       </div>
 
-      <div className="flex items-center gap-3 mb-5 text-accent text-[0.67rem] tracking-[0.2em]">
-        <span className="w-7 h-px bg-accent" />
+      <div className="flex items-center gap-3 mb-5 text-accent font-mono text-[0.67rem] tracking-[0.1em]">
+        <span className="text-muted">$</span>
         <span>
-          {role}
-          <span className="inline-block w-[2px] h-[0.75em] bg-accent ml-[2px] align-middle animate-blink" />
+          whoami --role
+          <span className="text-hi ml-2">{role}</span>
+          <span className="inline-block w-[2px] h-[0.9em] bg-accent ml-[2px] align-middle animate-blink" />
         </span>
       </div>
 
-      <h1 className="font-syne font-extrabold text-hi leading-[0.95] tracking-[-0.04em] mb-5"
-        style={{ fontSize: "clamp(2.8rem, 5.5vw, 5rem)" }}>
+      <h1 className="font-display font-extrabold text-hi leading-[0.98] tracking-[-0.02em] mb-5"
+        style={{ fontSize: "clamp(2.4rem, 5vw, 4.4rem)" }}>
         João Pedro
         <span className="block text-accent">Plinta.</span>
       </h1>
 
-      <p className="font-serif italic text-[1.3rem] text-muted mb-6">
+      <p className="font-serif italic text-[1.25rem] text-muted mb-6">
         Building things for the web.
       </p>
 
-      <p className="text-muted text-[0.87rem] leading-[1.85] max-w-[400px] mb-10">
+      <p className="font-prose text-muted text-[0.87rem] leading-[1.85] max-w-[420px] mb-7">
         Desenvolvedor apaixonado por criar experiências digitais elegantes e
-        funcionais. Especializado em <strong className="text-hi font-normal">React, TypeScript e Node.js</strong> —
-        transformando ideias em código de qualidade.
+        funcionais. Especializado em <strong className="text-hi font-medium">React, TypeScript e Node.js</strong> —
+        transformando ideias em código de qualidade, do commit ao deploy.
       </p>
+
+      {/* diff-stat line */}
+      <div className="flex flex-wrap items-center gap-x-5 gap-y-2 mb-9 font-mono text-[0.72rem]">
+        <span className="text-accent3">+2 anos exp</span>
+        <span className="text-accent3">+10 projetos</span>
+        <span className="text-accent2">~∞ energia</span>
+      </div>
 
       <div className="flex flex-wrap items-center gap-3 sm:gap-4">
         <a
           href="#projects"
           className="
             inline-flex items-center gap-2
-            bg-accent text-bg font-bold text-[0.76rem] tracking-[0.1em] uppercase
-            px-7 py-[13px] rounded no-underline
+            bg-accent text-bg font-mono font-semibold text-[0.76rem]
+            px-6 py-[13px] rounded no-underline
             transition-[transform,box-shadow] duration-200
-            hover:-translate-y-0.5 hover:shadow-[0_12px_36px_rgba(124,106,247,0.4)]
+            hover:-translate-y-0.5 hover:shadow-[0_12px_36px_rgba(227,165,63,0.35)]
           "
         >
-          Ver Projetos →
+          ver releases →
         </a>
 
         <a
@@ -73,8 +88,8 @@ function HeroContent() {
           download="JoaoPedroPlinta_curriculo.pdf"
           className="
             inline-flex items-center gap-2
-            border border-border text-muted font-bold text-[0.76rem] tracking-[0.1em] uppercase
-            px-7 py-[13px] rounded no-underline
+            border border-border text-muted font-mono font-medium text-[0.76rem]
+            px-6 py-[13px] rounded no-underline
             transition-[border-color,color,transform] duration-200
             hover:border-accent hover:text-accent hover:-translate-y-0.5
           "
@@ -84,7 +99,7 @@ function HeroContent() {
             <polyline points="7 10 12 15 17 10" />
             <line x1="12" y1="15" x2="12" y2="3" />
           </svg>
-          Download CV
+          cv.pdf
         </a>
 
         <a
@@ -92,42 +107,47 @@ function HeroContent() {
           target="_blank"
           rel="noreferrer"
           className="
-            text-muted no-underline text-[0.76rem] tracking-[0.1em] uppercase
+            text-muted no-underline font-mono text-[0.76rem]
             transition-colors duration-200 hover:text-hi
           "
         >
-          GitHub →
+          github →
         </a>
       </div>
     </div>
   );
 }
 
-function HeroAvatar() {
-  const stats = [["2+", "Anos exp."], ["10+", "Projetos"], ["∞", "Energético"]];
-
+function TerminalCard() {
   return (
-    <div className="flex justify-center items-center relative order-first md:order-last">
-      <div
-        className="w-[220px] h-[220px] sm:w-[260px] sm:h-[260px] md:w-[280px] md:h-[280px] rounded-full p-0.5"
-        style={{ background: "linear-gradient(135deg, #7c6af7, #e84393, #3ecfcf)" }}
-      >
-        <div className="w-full h-full rounded-full bg-surface flex items-center justify-center font-syne font-extrabold text-[4rem] md:text-[5rem] text-accent">
-          JP
+    <div className="order-first md:order-last">
+      <div className="rounded-xl border border-border bg-card overflow-hidden shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)]">
+        {/* Chrome */}
+        <div className="flex items-center gap-2 px-4 py-3 border-b border-border bg-surface">
+          <span className="w-[10px] h-[10px] rounded-full bg-accent2/70" />
+          <span className="w-[10px] h-[10px] rounded-full bg-accent/70" />
+          <span className="w-[10px] h-[10px] rounded-full bg-accent3/70" />
+          <span className="ml-3 font-mono text-[0.65rem] text-muted truncate">
+            ~/joao-pedro-plinta — zsh
+          </span>
         </div>
-      </div>
 
-      <div className="absolute -bottom-3.5 -right-3.5 bg-card border border-border rounded-xl px-4 sm:px-5 py-3 sm:py-3.5 flex gap-3 sm:gap-5">
-        {stats.map(([num, label]) => (
-          <div key={label} className="text-center">
-            <div className="font-syne font-extrabold text-[1.1rem] sm:text-[1.4rem] text-accent leading-none">
-              {num}
-            </div>
-            <div className="text-[0.55rem] sm:text-[0.6rem] text-muted uppercase tracking-[0.1em] mt-1">
-              {label}
-            </div>
-          </div>
-        ))}
+        {/* Body */}
+        <div className="p-5 font-mono text-[0.72rem] leading-[1.9]">
+          <p className="text-muted mb-3">
+            <span className="text-accent3">➜</span> git log --oneline -4
+          </p>
+          {LOG_LINES.map((l) => (
+            <p key={l.hash} className="truncate">
+              <span className="text-accent">{l.hash}</span>{" "}
+              <span className="text-hi">{l.msg}</span>
+            </p>
+          ))}
+          <p className="mt-3 text-muted">
+            <span className="text-accent3">➜</span>{" "}
+            <span className="inline-block w-[7px] h-[1.1em] bg-accent3 align-middle animate-blink" />
+          </p>
+        </div>
       </div>
     </div>
   );

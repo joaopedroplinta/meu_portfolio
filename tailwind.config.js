@@ -4,20 +4,21 @@ export default {
   theme: {
     extend: {
       colors: {
-        bg:      "#0a0a0f",
-        surface: "#111118",
-        card:    "#16161f",
-        border:  "#1e1e2e",
-        accent:  "#7c6af7",
-        accent2: "#e84393",
+        bg:      "#0b0c11",
+        surface: "#121319",
+        card:    "#16171f",
+        border:  "#212230",
+        accent:  "#7b6ef6",
+        accent2: "#4f8ef7",
         accent3: "#3ecfcf",
-        hi:      "#f0f0ff",
-        muted:   "#6b6b80",
+        hi:      "#eef0fa",
+        muted:   "#7d8094",
       },
       fontFamily: {
-        syne:       ["Syne", "sans-serif"],
-        mono:       ["DM Mono", "monospace"],
-        serif:      ["Instrument Serif", "serif"],
+        display: ["JetBrains Mono", "monospace"],
+        mono:    ["IBM Plex Mono", "monospace"],
+        prose:   ["IBM Plex Sans", "sans-serif"],
+        serif:   ["Instrument Serif", "serif"],
       },
       keyframes: {
         blink: {
