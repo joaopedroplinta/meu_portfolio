@@ -7,9 +7,7 @@ Este é meu portfólio pessoal, desenvolvido com React e TypeScript, apresentand
 - [React](https://reactjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
-- [Framer Motion](https://www.framer.com/motion/)
-- [Lucide React](https://lucide.dev/)
-- [React Scroll](https://www.npmjs.com/package/react-scroll)
+- [Vite](https://vitejs.dev/)
 
 ## 💻 Pré-requisitos
 

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export function useTypewriter(words: string[], typingSpeed = 80, deletingSpeed = 45, pauseMs = 1800) {
   const [displayed, setDisplayed] = useState("");
@@ -39,8 +39,7 @@ export function useTypewriter(words: string[], typingSpeed = 80, deletingSpeed =
 
     timeout = setTimeout(tick, typingSpeed);
     return () => clearTimeout(timeout);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [words, typingSpeed, deletingSpeed, pauseMs]);
 
   return displayed;
 }

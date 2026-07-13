@@ -87,7 +87,8 @@ export function Navbar() {
         <button
           className="md:hidden flex flex-col justify-center items-center gap-[5px] w-8 h-8"
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Abrir menu"
+          aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
+          aria-expanded={menuOpen}
         >
           <span className={`block w-6 h-0.5 bg-hi transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-[7px]" : ""}`} />
           <span className={`block w-6 h-0.5 bg-hi transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
