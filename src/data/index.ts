@@ -63,12 +63,13 @@ export interface Project {
 export const PROJECTS: Project[] = [
   {
     featured: true,
-    image: "/projeto-salao.png",
-    title: "Lash Studio System",
-    description: "Sistema fullstack para gestão de estética, com agendamento online, autenticação via Sanctum e painel administrativo completo.",
-    tags: ["React", "Laravel", "PHP", "PostgreSQL", "TypeScript", "Tailwind"],
-    gradientFrom: "#2d1b69", gradientTo: "#b82e8d",
-    demo: "https://lash-studio-web.vercel.app/",
+    image: "/plana.png",
+    title: "Plana",
+    description: "SaaS multi-tenant de agendamentos para negócios de serviço — agendamento online, gestão de equipe, pacotes de sessões e pagamentos via PIX/cartão, com painel administrativo completo.",
+    tags: ["Next.js", "Laravel", "PostgreSQL", "TypeScript", "Tailwind", "Docker"],
+    gradientFrom: "#003d3d", gradientTo: "#5a8f1f",
+    demo: "https://plana-web.onrender.com/",
+    github: "https://github.com/joaopedroplinta/Plana",
   },
   {
     featured: true,
