@@ -1,8 +1,11 @@
-import { useTypewriter } from "../hooks";
+import { useTypewriter, useGitCommits } from "../hooks";
 
 const ROLES = ["Full Stack Dev", "React Dev", "TypeScript Dev", "Node.js Dev", "PHP Dev", "Tech Enthusiast"];
 
-const LOG_LINES = [
+const COMMITS_REPO = "joaopedroplinta/Plana";
+
+// Fallback exibido enquanto a API do GitHub responde, ou se falhar/ratelimitar.
+const FALLBACK_LOG_LINES = [
   { hash: "a1b2c3d", msg: "feat: lança Plana em produção (Docker + CI/CD)" },
   { hash: "9f8e7d6", msg: "fix: corrige timezone nos agendamentos" },
   { hash: "5c4b3a2", msg: "feat: isolamento multi-tenant em todas as policies" },
@@ -119,6 +122,10 @@ function HeroContent() {
 }
 
 function TerminalCard() {
+  const { commits, error } = useGitCommits(COMMITS_REPO, 4);
+  const lines = commits ?? FALLBACK_LOG_LINES;
+  const isLive = commits !== null && !error;
+
   return (
     <div className="order-first md:order-last">
       <div className="rounded-xl border border-border bg-card overflow-hidden shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)]">
@@ -130,14 +137,21 @@ function TerminalCard() {
           <span className="ml-3 font-mono text-[0.65rem] text-muted truncate">
             ~/joao-pedro-plinta — zsh
           </span>
+          {isLive && (
+            <span className="ml-auto flex items-center gap-1.5 font-mono text-[0.6rem] text-accent3 shrink-0">
+              <span className="w-1.5 h-1.5 bg-accent3 rounded-full animate-blink" />
+              live
+            </span>
+          )}
         </div>
 
         {/* Body */}
         <div className="p-5 font-mono text-[0.72rem] leading-[1.9]">
           <p className="text-muted mb-3">
             <span className="text-accent3">➜</span> git log --oneline -4
+            {isLive && <span className="text-muted/60"> · {COMMITS_REPO}</span>}
           </p>
-          {LOG_LINES.map((l) => (
+          {lines.map((l) => (
             <p key={l.hash} className="truncate">
               <span className="text-accent">{l.hash}</span>{" "}
               <span className="text-hi">{l.msg}</span>

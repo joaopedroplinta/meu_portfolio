@@ -67,6 +67,40 @@ export function useScrolled(threshold = 40) {
   return scrolled;
 }
 
+export interface GitCommit { hash: string; msg: string; }
+
+/** Busca os commits mais recentes de um repo público via API do GitHub (sem auth). */
+export function useGitCommits(repo: string, count = 4) {
+  const [commits, setCommits] = useState<GitCommit[] | null>(null);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    fetch(`https://api.github.com/repos/${repo}/commits?per_page=${count}`)
+      .then((res) => {
+        if (!res.ok) throw new Error(`GitHub API respondeu ${res.status}`);
+        return res.json() as Promise<{ sha: string; commit: { message: string } }[]>;
+      })
+      .then((data) => {
+        if (cancelled) return;
+        setCommits(
+          data.map((c) => ({
+            hash: c.sha.slice(0, 7),
+            msg: c.commit.message.split("\n")[0],
+          }))
+        );
+      })
+      .catch(() => {
+        if (!cancelled) setError(true);
+      });
+
+    return () => { cancelled = true; };
+  }, [repo, count]);
+
+  return { commits, error };
+}
+
 export function useInView(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
