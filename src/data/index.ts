@@ -69,7 +69,7 @@ export const PROJECTS: Project[] = [
     ],
     tags: ["Next.js", "Laravel", "PostgreSQL", "TypeScript", "Tailwind", "Docker"],
     gradientFrom: "#121319", gradientTo: "#1f2440",
-    demo: "https://plana-web.onrender.com/",
+    demo: "https://planaapp.com.br/",
     github: "https://github.com/joaopedroplinta/Plana",
   },
   {
