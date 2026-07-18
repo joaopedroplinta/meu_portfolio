@@ -1,7 +1,12 @@
 import { useState } from "react";
 import { PROJECTS, Project } from "../data";
-import { useInView } from "../hooks";
+import { useInView, useLatestVersion } from "../hooks";
 import { SectionHeader } from "./UI";
+
+function repoSlug(githubUrl?: string) {
+  const match = githubUrl?.match(/github\.com\/([^/]+\/[^/]+?)\/?$/);
+  return match?.[1];
+}
 
 function ProjectLinks({ demo, github }: { demo: string; github?: string }) {
   const links = [
@@ -59,6 +64,7 @@ function MediaPanel({ p, compact }: { p: Project; compact?: boolean }) {
 function FeaturedCard({ p }: { p: Project }) {
   const [ref, inView] = useInView(0.1);
   const [hov, setHov] = useState(false);
+  const version = useLatestVersion(repoSlug(p.github)) ?? p.version;
 
   return (
     <div
@@ -82,7 +88,7 @@ function FeaturedCard({ p }: { p: Project }) {
               latest
             </span>
           )}
-          <span className="font-mono text-[0.68rem] text-muted">{p.version}</span>
+          <span className="font-mono text-[0.68rem] text-muted">{version}</span>
         </div>
 
         <h3 className="font-display font-extrabold text-[1.15rem] sm:text-[1.25rem] text-hi tracking-tight mb-2">
@@ -119,6 +125,7 @@ function FeaturedCard({ p }: { p: Project }) {
 function SmallCard({ p }: { p: Project }) {
   const [ref, inView] = useInView(0.1);
   const [hov, setHov] = useState(false);
+  const version = useLatestVersion(repoSlug(p.github)) ?? p.version;
 
   return (
     <div
@@ -136,7 +143,7 @@ function SmallCard({ p }: { p: Project }) {
       <MediaPanel p={p} compact />
 
       <div className="p-5 flex flex-col flex-1">
-        <p className="font-mono text-[0.65rem] text-muted mb-2">{p.version}</p>
+        <p className="font-mono text-[0.65rem] text-muted mb-2">{version}</p>
         <h3 className="font-display font-bold text-[1rem] text-hi tracking-tight mb-2">
           <span className="text-muted">## [</span>{p.title}<span className="text-muted">]</span>
         </h3>
