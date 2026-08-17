@@ -2,14 +2,14 @@ import { useTypewriter, useGitCommits } from "../hooks";
 
 const ROLES = ["Full Stack Dev", "React Dev", "TypeScript Dev", "Node.js Dev", "PHP Dev", "Tech Enthusiast"];
 
-const COMMITS_REPO = "joaopedroplinta/Plana";
+const COMMITS_REPO = "joaopedroplinta/hackathon-ifpr";
 
 // Fallback exibido enquanto a API do GitHub responde, ou se falhar/ratelimitar.
 const FALLBACK_LOG_LINES = [
-  { hash: "a1b2c3d", msg: "feat: lança Plana em produção (Docker + CI/CD)" },
-  { hash: "9f8e7d6", msg: "fix: corrige timezone nos agendamentos" },
-  { hash: "5c4b3a2", msg: "feat: isolamento multi-tenant em todas as policies" },
-  { hash: "3d2e1f0", msg: "docs: atualiza CHANGELOG antes do release" },
+  { hash: "af4e0aa", msg: "docs: corrige status do check-in por QR" },
+  { hash: "d1d3d8a", msg: "feat: leitor de QR na câmera do check-in" },
+  { hash: "b8dc969", msg: "docs: minuta do DPO e roteiro do ensaio geral" },
+  { hash: "93a9389", msg: "fix: bugs de dado realista + limpeza de scaffold" },
 ];
 
 export function Hero() {
@@ -61,7 +61,7 @@ function HeroContent() {
 
       <p className="font-prose text-muted text-[0.87rem] leading-[1.85] max-w-[420px] mb-7">
         Desenvolvedor apaixonado por criar experiências digitais elegantes e
-        funcionais. Especializado em <strong className="text-hi font-medium">React, TypeScript e Node.js</strong> —
+        funcionais. Especializado em <strong className="text-hi font-medium">React, TypeScript, Node.js e Laravel</strong> —
         transformando ideias em código de qualidade, do commit ao deploy.
       </p>
 
