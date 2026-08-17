@@ -57,6 +57,22 @@ export interface Project {
 export const PROJECTS: Project[] = [
   {
     featured: true,
+    version: "v0.8.0-dev",
+    image: "/hackathon-ifpr.png",
+    title: "Hackathon IFPR — Sistema de Apoio",
+    description: "Sistema web que cobre o ciclo completo do 1º Hackathon do curso: inscrição, equipes, agenda, avaliação e resultados.",
+    highlights: [
+      "Inscrição, formação de equipes e submissão de projetos com prazo validado no servidor",
+      "Avaliação por jurados com rubrica configurável e distribuição automática por conflito de interesse",
+      "Check-in por QR code, voto popular, certificados em PDF e plano de contingência pro dia do evento",
+    ],
+    tags: ["Laravel", "Inertia.js", "React", "TypeScript", "PostgreSQL"],
+    gradientFrom: "#121319", gradientTo: "#1f2440",
+    demo: "#",
+    github: "https://github.com/joaopedroplinta/hackathon-ifpr",
+  },
+  {
+    featured: true,
     latest: true,
     version: "v1.0.0",
     image: "/plana.png",
