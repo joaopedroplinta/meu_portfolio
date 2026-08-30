@@ -61,7 +61,7 @@ function MediaPanel({ p, compact }: { p: Project; compact?: boolean }) {
   );
 }
 
-function FeaturedCard({ p }: { p: Project }) {
+function FeaturedCard({ p, isLatest }: { p: Project; isLatest?: boolean }) {
   const [ref, inView] = useInView(0.1);
   const [hov, setHov] = useState(false);
   const version = useLatestVersion(repoSlug(p.github)) ?? p.version;
@@ -83,7 +83,7 @@ function FeaturedCard({ p }: { p: Project }) {
 
       <div className="p-6 sm:p-7 flex flex-col">
         <div className="flex items-center gap-2.5 mb-3 flex-wrap">
-          {p.latest && (
+          {isLatest && (
             <span className="bg-accent3/15 text-accent3 border border-accent3/30 px-2 py-[2px] rounded font-mono text-[0.6rem]">
               latest
             </span>
@@ -166,7 +166,7 @@ export function Projects() {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-[18px]">
         {PROJECTS.map((p, i) =>
           p.featured
-            ? <FeaturedCard key={i} p={p} />
+            ? <FeaturedCard key={i} p={p} isLatest={i === 0} />
             : <SmallCard    key={i} p={p} />
         )}
       </div>

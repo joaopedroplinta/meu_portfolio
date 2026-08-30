@@ -40,7 +40,6 @@ export const DEPENDENCIES: DependencyGroup[] = [
 
 export interface Project {
   featured: boolean;
-  latest?: boolean;
   version: string;
   emoji?: string;
   image?: string;
@@ -54,6 +53,7 @@ export interface Project {
   github?: string;
 }
 
+// Novo projeto sempre entra no topo — o primeiro item vira o "latest" automaticamente.
 export const PROJECTS: Project[] = [
   {
     featured: true,
@@ -73,7 +73,6 @@ export const PROJECTS: Project[] = [
   },
   {
     featured: true,
-    latest: true,
     version: "v1.0.0",
     image: "/plana.png",
     title: "Plana",
