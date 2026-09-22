@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { NAV_LINKS, PROFILE } from "../data";
 import { useActiveSection } from "../hooks";
 import { Icon } from "./UI";
+import { ThemeToggle } from "./ThemeToggle";
 import { AnimatePresence, m, useReducedMotion } from "motion/react";
 
 export function Navbar() {
@@ -78,25 +79,28 @@ export function Navbar() {
             </a>
           ))}
         </nav>
-        <a href="#contact" className="header-contact">
-          Vamos conversar <Icon name="arrow-up-right" />
-        </a>
-        <button
-          ref={menuButton}
-          className="menu-toggle"
-          aria-expanded={menuOpen}
-          aria-controls="mobile-menu"
-          aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          <span
-            className={menuOpen ? "menu-lines is-open" : "menu-lines"}
-            aria-hidden="true"
+        <div className="header-actions">
+          <ThemeToggle />
+          <a href="#contact" className="header-contact">
+            Vamos conversar <Icon name="arrow-up-right" />
+          </a>
+          <button
+            ref={menuButton}
+            className="menu-toggle"
+            aria-expanded={menuOpen}
+            aria-controls="mobile-menu"
+            aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
+            onClick={() => setMenuOpen(!menuOpen)}
           >
-            <span />
-            <span />
-          </span>
-        </button>
+            <span
+              className={menuOpen ? "menu-lines is-open" : "menu-lines"}
+              aria-hidden="true"
+            >
+              <span />
+              <span />
+            </span>
+          </button>
+        </div>
       </div>
       <AnimatePresence>
         {menuOpen && (
