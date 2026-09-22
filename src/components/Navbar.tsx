@@ -1,152 +1,136 @@
-import { useState } from "react";
-import { NAV_LINKS } from "../data";
-import { useScrolled, useScrollProgress } from "../hooks";
+import { useEffect, useRef, useState } from "react";
+import { NAV_LINKS, PROFILE } from "../data";
+import { useActiveSection } from "../hooks";
+import { Icon } from "./UI";
+import { AnimatePresence, m, useReducedMotion } from "motion/react";
 
 export function Navbar() {
-  const scrolled = useScrolled();
-  const progress = useScrollProgress();
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuButton = useRef<HTMLButtonElement>(null);
+  const header = useRef<HTMLElement>(null);
+  const active = useActiveSection();
+  const reducedMotion = useReducedMotion();
 
+  useEffect(() => {
+    if (!menuOpen) return;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setMenuOpen(false);
+        menuButton.current?.focus();
+      }
+    };
+    const closeOutside = (event: PointerEvent) => {
+      if (!header.current?.contains(event.target as Node)) setMenuOpen(false);
+    };
+    const desktop = window.matchMedia("(min-width: 800px)");
+    const closeOnDesktop = () => {
+      if (desktop.matches) setMenuOpen(false);
+    };
+    document.addEventListener("keydown", closeOnEscape);
+    document.addEventListener("pointerdown", closeOutside);
+    desktop.addEventListener("change", closeOnDesktop);
+    return () => {
+      document.removeEventListener("keydown", closeOnEscape);
+      document.removeEventListener("pointerdown", closeOutside);
+      desktop.removeEventListener("change", closeOnDesktop);
+    };
+  }, [menuOpen]);
+
+  const closeMenu = () => setMenuOpen(false);
   return (
-    <>
-      {/* Scroll progress bar */}
-      <div
-        className="fixed top-0 left-0 h-0.5 z-[300] pointer-events-none transition-[width] duration-100"
-        style={{
-          width: `${progress}%`,
-          background: "linear-gradient(90deg, var(--accent), var(--accent3))",
-        }}
-      />
-
-      <nav
-        className={`
-          fixed top-0 w-full z-[100] px-5 sm:px-12 py-4
-          flex justify-between items-center
-          transition-all duration-300
-          ${scrolled
-            ? "backdrop-blur-xl bg-bg/85 border-b border-border"
-            : "bg-transparent border-b border-transparent"
-          }
-        `}
-      >
+    <header
+      className="site-header"
+      ref={header}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget))
+          setMenuOpen(false);
+      }}
+    >
+      <div className="container header-inner">
         <a
-          href="#"
-          className="flex items-center gap-2 no-underline font-mono text-[0.78rem] tracking-tight min-w-0"
+          className="wordmark"
+          href="#hero"
+          aria-label="João Pedro Plinta, início"
+          onClick={closeMenu}
         >
-          <span className="text-accent3 shrink-0" aria-hidden="true">●</span>
-          <span className="text-hi font-medium truncate">joaopedroplinta</span>
-          <span className="text-muted shrink-0">/</span>
-          <span className="text-muted truncate hidden sm:inline">CHANGELOG.md</span>
+          <span className="monogram" aria-hidden="true">
+            jp<span>.</span>
+          </span>
+          <span>João Pedro Plinta</span>
         </a>
-
-        {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-6">
-          {NAV_LINKS.map((l) => (
+        <nav className="desktop-nav" aria-label="Navegação principal">
+          {NAV_LINKS.map((link) => (
             <a
-              key={l.href}
-              href={l.href}
-              className="
-                no-underline text-muted font-mono text-[0.7rem] tracking-[0.04em]
-                transition-colors duration-200 hover:text-hi
-              "
+              key={link.href}
+              href={link.href}
+              aria-current={
+                active === link.href.slice(1) ? "location" : undefined
+              }
             >
-              {l.label}
+              {active === link.href.slice(1) && (
+                <m.span
+                  className="nav-active-marker"
+                  layoutId="active-section"
+                  transition={{ type: "spring", stiffness: 380, damping: 34 }}
+                />
+              )}
+              <span>{link.label}</span>
             </a>
           ))}
-
-          <a
-            href="/JoaoPedroPlinta_curriculo.pdf"
-            download="JoaoPedroPlinta_curriculo.pdf"
-            className="
-              inline-flex items-center gap-2
-              border border-accent/60 text-accent font-mono font-medium text-[0.7rem]
-              px-[14px] py-[6px] rounded no-underline
-              transition-[background,color,box-shadow] duration-200
-              hover:bg-accent hover:text-bg hover:shadow-[0_6px_20px_rgba(227,165,63,0.3)]
-            "
-          >
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
-              <polyline points="7 10 12 15 17 10" />
-              <line x1="12" y1="15" x2="12" y2="3" />
-            </svg>
-            cv.pdf
-          </a>
-
-          <a
-            href="#contact"
-            className="
-              bg-accent text-bg font-mono font-semibold text-[0.7rem]
-              px-[14px] py-[6px] rounded no-underline
-              transition-shadow duration-200
-              hover:shadow-[0_6px_20px_rgba(227,165,63,0.4)]
-            "
-          >
-            contato →
-          </a>
-        </div>
-
-        {/* Mobile hamburger */}
+        </nav>
+        <a href="#contact" className="header-contact">
+          Vamos conversar <Icon name="arrow-up-right" />
+        </a>
         <button
-          className="md:hidden flex flex-col justify-center items-center gap-[5px] w-8 h-8 shrink-0"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
+          ref={menuButton}
+          className="menu-toggle"
           aria-expanded={menuOpen}
+          aria-controls="mobile-menu"
+          aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
+          onClick={() => setMenuOpen(!menuOpen)}
         >
-          <span className={`block w-6 h-0.5 bg-hi transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-[7px]" : ""}`} />
-          <span className={`block w-6 h-0.5 bg-hi transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
-          <span className={`block w-6 h-0.5 bg-hi transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-[7px]" : ""}`} />
+          <span
+            className={menuOpen ? "menu-lines is-open" : "menu-lines"}
+            aria-hidden="true"
+          >
+            <span />
+            <span />
+          </span>
         </button>
-      </nav>
-
-      {/* Mobile menu dropdown */}
-      <div
-        className={`
-          fixed top-[57px] left-0 right-0 z-[99]
-          backdrop-blur-xl bg-bg/95 border-b border-border
-          flex flex-col gap-0
-          transition-all duration-300 md:hidden
-          ${menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}
-        `}
-      >
-        {NAV_LINKS.map((l) => (
-          <a
-            key={l.href}
-            href={l.href}
-            onClick={() => setMenuOpen(false)}
-            className="
-              no-underline text-muted font-mono text-[0.75rem]
-              px-6 py-4 border-b border-border/50
-              transition-colors duration-200 hover:text-hi hover:bg-white/[0.02]
-            "
-          >
-            {l.label}
-          </a>
-        ))}
-        <div className="flex gap-3 px-6 py-4">
-          <a
-            href="/JoaoPedroPlinta_curriculo.pdf"
-            download="JoaoPedroPlinta_curriculo.pdf"
-            className="
-              inline-flex items-center gap-2 justify-center
-              border border-accent/60 text-accent font-mono font-medium text-[0.7rem]
-              px-4 py-2 rounded no-underline flex-1
-            "
-          >
-            cv.pdf
-          </a>
-          <a
-            href="#contact"
-            onClick={() => setMenuOpen(false)}
-            className="
-              bg-accent text-bg font-mono font-semibold text-[0.7rem]
-              px-4 py-2 rounded no-underline flex-1 text-center
-            "
-          >
-            contato →
-          </a>
-        </div>
       </div>
-    </>
+      <AnimatePresence>
+        {menuOpen && (
+          <m.nav
+            initial={{ opacity: 0, y: reducedMotion ? 0 : -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: reducedMotion ? 0 : -8 }}
+            transition={{ duration: reducedMotion ? 0 : 0.16 }}
+            id="mobile-menu"
+            className="mobile-nav"
+            aria-label="Navegação mobile"
+          >
+            {NAV_LINKS.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={closeMenu}
+                aria-current={
+                  active === link.href.slice(1) ? "location" : undefined
+                }
+              >
+                {link.label}
+                <Icon name="arrow-right" />
+              </a>
+            ))}
+            <a href={PROFILE.resume} download onClick={closeMenu}>
+              Baixar currículo <Icon name="download" />
+            </a>
+            <a href="#contact" onClick={closeMenu}>
+              Vamos conversar <Icon name="arrow-up-right" />
+            </a>
+          </m.nav>
+        )}
+      </AnimatePresence>
+    </header>
   );
 }

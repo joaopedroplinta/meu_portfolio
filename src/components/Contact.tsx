@@ -1,61 +1,72 @@
-import { useState } from "react";
-import { FadeUp, SectionHeader } from "./UI";
-
-interface ContactLinkProps { icon: string; label: string; href: string; }
-
-function ContactLink({ icon, label, href }: ContactLinkProps) {
-  const [hov, setHov] = useState(false);
-  return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noreferrer"
-      onMouseEnter={() => setHov(true)}
-      onMouseLeave={() => setHov(false)}
-      className={`
-        flex items-center gap-3.5 no-underline font-mono text-[0.8rem]
-        px-4 py-[13px] rounded-lg bg-card
-        border transition-all duration-200
-        ${hov ? "border-accent text-accent" : "border-border text-hi"}
-      `}
-    >
-      <div className="w-8 h-8 bg-accent/10 rounded-md flex items-center justify-center shrink-0 text-base">
-        {icon}
-      </div>
-      <span className="truncate">{label}</span>
-    </a>
-  );
-}
+import { useRef, useState } from "react";
+import { PROFILE } from "../data";
+import { Icon } from "./UI";
 
 export function Contact() {
+  const [copyState, setCopyState] = useState<"idle" | "copied" | "error">(
+    "idle",
+  );
+  const copying = useRef(false);
+  async function copyEmail() {
+    if (copying.current) return;
+    copying.current = true;
+    try {
+      await navigator.clipboard.writeText(PROFILE.email);
+      setCopyState("copied");
+    } catch {
+      setCopyState("error");
+    } finally {
+      copying.current = false;
+    }
+  }
   return (
-    <section id="contact" className="max-w-[1160px] mx-auto px-5 sm:px-12 py-[80px] sm:py-[100px]">
-      <SectionHeader title="Contribuindo" />
-
-      <FadeUp className="flex flex-col items-center text-center">
-        <p className="font-mono text-[0.65rem] text-accent tracking-wide mb-4">maintainer:</p>
-
-        <h3
-          className="font-display font-extrabold text-hi leading-[1.1] tracking-[-0.02em] mb-5"
-          style={{ fontSize: "clamp(1.6rem, 3.2vw, 2.6rem)" }}
-        >
-          Vamos{" "}
-          <span className="font-serif italic text-accent">trabalhar</span>
-          {" "}juntos?
-        </h3>
-
-        <p className="font-prose text-[0.84rem] text-muted leading-[1.85] mb-9 max-w-[460px]">
-          Seja para um novo projeto, uma oportunidade de emprego ou só uma
-          conversa sobre tech — minha caixa de entrada está aberta. Sem burocracia,
-          sem template de issue.
-        </p>
-
-        <div className="flex flex-col gap-2.5 w-full max-w-[480px]">
-          <ContactLink icon="✉️" label="joaopedrohenriqueplinta@gmail.com" href="mailto:joaopedrohenriqueplinta@gmail.com" />
-          <ContactLink icon="💼" label="linkedin.com/in/joao-pedro-plinta"  href="https://linkedin.com/in/joao-pedro-plinta" />
-          <ContactLink icon="🐙" label="github.com/joaopedroplinta"         href="https://github.com/joaopedroplinta" />
+    <section
+      id="contact"
+      className="contact-section"
+      aria-labelledby="contact-title"
+    >
+      <div className="container contact-grid">
+        <div>
+          <p className="section-label">Contato</p>
+          <h2 id="contact-title">
+            Vamos conversar.
+          </h2>
+          <p className="contact-description">
+            Para falar sobre um projeto, uma oportunidade ou trocar uma ideia
+            sobre desenvolvimento, me encontre por aqui.
+          </p>
+          <a className="button button-light" href={`mailto:${PROFILE.email}`}>
+            Entre em contato <Icon name="arrow-up-right" />
+          </a>
         </div>
-      </FadeUp>
+        <div className="contact-details">
+          <span className="contact-detail-label">Fale comigo por e-mail</span>
+          <a className="email-link" href={`mailto:${PROFILE.email}`}>
+            {PROFILE.email}
+          </a>
+          <button className="copy-email" onClick={copyEmail}>
+            <Icon name={copyState === "copied" ? "check" : "mail"} />
+            {copyState === "copied"
+              ? "Copiado! Copiar novamente"
+              : "Copiar e-mail"}
+          </button>
+          <p className="copy-feedback" role="status">
+            {copyState === "error"
+              ? "Não foi possível copiar. Selecione o endereço acima ou use o link para enviar um e-mail."
+              : copyState === "copied"
+                ? "E-mail copiado para a área de transferência."
+                : ""}
+          </p>
+          <div className="contact-socials">
+            <a href={PROFILE.linkedin} target="_blank" rel="noreferrer">
+              LinkedIn <Icon name="arrow-up-right" />
+            </a>
+            <a href={PROFILE.github} target="_blank" rel="noreferrer">
+              GitHub <Icon name="arrow-up-right" />
+            </a>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
