@@ -8,7 +8,9 @@ type IconName =
   | "layers"
   | "database"
   | "check"
-  | "plus";
+  | "plus"
+  | "sun"
+  | "moon";
 const paths: Record<IconName, string> = {
   "arrow-up-right": "M7 17 17 7M7 7h10v10",
   "arrow-right": "M4 12h16m-6-6 6 6-6 6",
@@ -21,6 +23,8 @@ const paths: Record<IconName, string> = {
     "M4 6c0-4 16-4 16 0s-16 4-16 0Zm0 0v12c0 4 16 4 16 0V6M4 12c0 4 16 4 16 0",
   check: "m5 12 4 4L19 6",
   plus: "M12 5v14M5 12h14",
+  moon: "M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z",
+  sun: "M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0ZM12 2v2m0 16v2M2 12h2m16 0h2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42",
 };
 export function Icon({
   name,
