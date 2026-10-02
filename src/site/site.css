@@ -828,16 +828,48 @@ main:focus {
   list-style: none;
 }
 .about-timeline li {
+  position: relative;
   display: grid;
   grid-template-columns: 150px minmax(0, 1fr);
-  gap: 20px;
-  padding: 18px 0;
-  border-top: 1px solid var(--line);
+  gap: 40px;
+  padding: 0 0 32px;
+}
+.about-timeline li:last-child {
+  padding-bottom: 0;
+}
+/* O fio liga um ano ao próximo; o ponto marca cada marco, e o mais recente é preenchido. */
+.about-timeline li::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 150px;
+  z-index: 1;
+  width: 11px;
+  height: 11px;
+  margin-left: 14px;
+  border: 2px solid var(--muted);
+  border-radius: 50%;
+  background: var(--surface);
+}
+.about-timeline li:first-child::before {
+  border-color: var(--accent);
+  background: var(--accent);
+}
+.about-timeline li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 17px;
+  bottom: -6px;
+  left: 150px;
+  width: 2px;
+  margin-left: 18.5px;
+  background: color-mix(in srgb, var(--muted) 45%, transparent);
 }
 .about-timeline span {
   color: var(--muted);
   font-size: 14px;
   font-variant-numeric: tabular-nums;
+  text-align: right;
 }
 .about-timeline strong {
   font-weight: 600;
@@ -1500,6 +1532,18 @@ button.s-link {
   .about-timeline li {
     grid-template-columns: minmax(0, 1fr);
     gap: 4px;
+    padding-left: 32px;
+  }
+  .about-timeline li::before {
+    left: 0;
+    margin-left: 0;
+  }
+  .about-timeline li:not(:last-child)::after {
+    left: 0;
+    margin-left: 4.5px;
+  }
+  .about-timeline span {
+    text-align: left;
   }
   .work-facts div {
     grid-template-columns: 96px minmax(0, 1fr);
