@@ -116,7 +116,7 @@ function Cover() {
       <div className="s-wrap cover-intro">
         <p>
           Gosto de entender como as coisas funcionam, e de construí-las inteiras.
-          Desenvolvo sistemas, estudo Linux e redes, e programo desde 2018.
+          Do banco de dados ao kernel.
         </p>
         <div className="cover-actions">
           <Link to="/#trabalho" className="s-button">
