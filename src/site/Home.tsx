@@ -115,9 +115,8 @@ function Cover() {
       </div>
       <div className="s-wrap cover-intro">
         <p>
-          Construo produtos web inteiros: modelo o banco, escrevo a API, desenho a
-          interface e coloco em produção. Estudo Ciência da Computação e programo
-          desde 2018.
+          Gosto de entender como as coisas funcionam, e de construí-las inteiras.
+          Desenvolvo sistemas, estudo Linux e redes, e programo desde 2018.
         </p>
         <div className="cover-actions">
           <Link to="/#trabalho" className="s-button">
@@ -191,7 +190,7 @@ function Work() {
       <div className="s-wrap">
         <div className="s-heading">
           <h2 id="work-title">Trabalho selecionado</h2>
-          <p>Três projetos contados em detalhe: o problema, as decisões e o que foi para produção.</p>
+          <p>Quatro projetos contados em detalhe: o problema, as decisões e o que ficou pronto.</p>
         </div>
         {FEATURED.map((project) => (
           <article key={project.id} className="work-item" aria-labelledby={`work-${project.id}`}>
