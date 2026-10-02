@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { PROFILE, PROJECTS, SKILL_GROUPS, TIMELINE } from "../data";
 import { CERTIFICATIONS, EVENT_CERTIFICATES } from "../data/certifications";
 import { CASE_STUDIES } from "../data/caseStudies";
-import { Icon } from "../components/UI";
+import { Icon } from "./UI";
 import { FEATURED, type Featured } from "./content";
 import { TOOL_ICONS } from "./toolIcons";
 

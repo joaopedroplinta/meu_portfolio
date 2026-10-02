@@ -5,7 +5,6 @@ import { Header, Footer } from "./site/Layout";
 import { Home } from "./site/Home";
 import { CasePage, NotFound } from "./site/CasePage";
 
-// O site anterior continua em src/components e src/index.css, sem uso.
 function ScrollManager() {
   const { key, hash } = useLocation();
   useEffect(() => {

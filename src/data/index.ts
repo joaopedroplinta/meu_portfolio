@@ -54,7 +54,6 @@ export interface Project {
   id: string;
   featured: boolean;
   category: string;
-  image?: string;
   title: string;
   description: string;
   highlights?: string[];
@@ -69,7 +68,6 @@ export const PROJECTS: Project[] = [
     featured: true,
     id: "hackathon",
     category: "Plataforma de eventos",
-    image: "/hackathon-ifpr.png",
     title: "Hackathon IFPR",
     description:
       "Uma plataforma para todo o ciclo de um hackathon: das inscrições e formação de equipes à avaliação e aos resultados.",
@@ -85,7 +83,6 @@ export const PROJECTS: Project[] = [
     featured: true,
     id: "plana",
     category: "SaaS de agendamentos",
-    image: "/plana.png",
     title: "Plana",
     description:
       "Uma plataforma de agendamentos para negócios de serviço, com gestão de profissionais, assinaturas e pagamentos. Em produção.",
