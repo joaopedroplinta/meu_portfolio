@@ -166,7 +166,7 @@ main:focus {
 .s-header {
   position: sticky;
   top: 0;
-  z-index: 50;
+  z-index: 65;
   background: color-mix(in srgb, var(--bg) 88%, transparent);
   backdrop-filter: blur(12px);
 }
@@ -241,41 +241,99 @@ main:focus {
 }
 .s-menu {
   display: none;
-  position: relative;
 }
-.s-menu summary {
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  padding: 0 18px;
-  border: 1px solid var(--line);
-  border-radius: 99px;
-  font-weight: 600;
-  font-size: 14px;
-  list-style: none;
+.s-burger {
+  position: relative;
+  z-index: 70;
+  display: grid;
+  place-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink);
   cursor: pointer;
 }
-.s-menu summary::-webkit-details-marker {
-  display: none;
+.s-burger span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transition:
+    transform 320ms var(--ease),
+    opacity 200ms ease;
 }
-.s-menu nav {
-  position: absolute;
-  top: calc(100% + 10px);
+.s-menu[data-open="true"] .s-burger span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.s-menu[data-open="true"] .s-burger span:nth-child(2) {
+  opacity: 0;
+}
+.s-menu[data-open="true"] .s-burger span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+.s-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 55;
+  background: rgb(0 0 0 / 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 320ms ease;
+}
+.s-scrim[data-open="true"] {
+  opacity: 1;
+  pointer-events: auto;
+}
+.s-drawer {
+  position: fixed;
+  top: 0;
   right: 0;
-  display: grid;
-  min-width: 220px;
-  padding: 8px;
-  border: 1px solid var(--line);
-  border-radius: 16px;
+  bottom: 0;
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  width: min(86vw, 360px);
+  padding: 96px 28px 32px;
+  border-left: 1px solid var(--line);
   background: var(--bg);
+  transform: translateX(100%);
+  visibility: hidden;
+  transition:
+    transform 400ms var(--ease),
+    visibility 0s 400ms;
 }
-.s-menu nav a {
-  padding: 12px 14px;
-  border-radius: 10px;
+.s-drawer[data-open="true"] {
+  transform: none;
+  visibility: visible;
+  transition:
+    transform 400ms var(--ease),
+    visibility 0s;
+}
+.s-drawer a {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 28px;
+  letter-spacing: -0.03em;
   text-decoration: none;
+  transition: color 200ms ease;
 }
-.s-menu nav a:hover {
-  background: var(--surface);
+.s-drawer a[aria-current],
+.s-drawer a:hover {
+  color: var(--ink);
+}
+.s-drawer a[aria-current] {
+  color: var(--accent);
+}
+.s-drawer .s-drawer-secondary {
+  margin-top: auto;
+  border-bottom: 0;
+  font-size: 16px;
+  letter-spacing: 0;
 }
 
 /* Capa */

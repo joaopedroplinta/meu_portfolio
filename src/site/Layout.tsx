@@ -1,4 +1,5 @@
-import { useLayoutEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
 import { PROFILE } from "../data";
 import { useActiveSection } from "../hooks";
@@ -11,6 +12,95 @@ const NAV = [
   { id: "certificados", label: "Certificados" },
   { id: "contato", label: "Contato" },
 ];
+
+function SideMenu({ active }: { active: string }) {
+  const [open, setOpen] = useState(false);
+  const button = useRef<HTMLButtonElement>(null);
+  const panel = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    panel.current?.querySelector<HTMLElement>("a")?.focus();
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        button.current?.focus();
+      }
+      if (event.key === "Tab" && panel.current) {
+        // Mantém o foco dentro da barra enquanto ela está aberta.
+        const items = [...panel.current.querySelectorAll<HTMLElement>("a, button")];
+        const first = items[0];
+        const last = items[items.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      }
+    };
+    const onResize = () => {
+      if (window.matchMedia("(min-width: 801px)").matches) setOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    window.addEventListener("resize", onResize);
+    return () => {
+      document.body.style.overflow = previous;
+      document.removeEventListener("keydown", onKey);
+      window.removeEventListener("resize", onResize);
+    };
+  }, [open]);
+
+  const close = () => setOpen(false);
+  return (
+    <div className="s-menu" data-open={open}>
+      <button
+        ref={button}
+        type="button"
+        className="s-burger"
+        aria-label={open ? "Fechar menu" : "Abrir menu"}
+        aria-expanded={open}
+        aria-controls="side-menu"
+        onClick={() => setOpen((v) => !v)}
+      >
+        <span aria-hidden="true" />
+        <span aria-hidden="true" />
+        <span aria-hidden="true" />
+      </button>
+      {createPortal(
+        <>
+          <div className="s-scrim" data-open={open} onClick={close} aria-hidden="true" />
+          <nav
+            ref={panel}
+            id="side-menu"
+            className="s-drawer"
+            data-open={open}
+            aria-label="Navegação mobile"
+            {...(open ? {} : { inert: "" })}
+          >
+            {NAV.map((item) => (
+              <Link
+                key={item.id}
+                to={`/#${item.id}`}
+                aria-current={active === item.id ? "location" : undefined}
+                onClick={close}
+              >
+                {item.label}
+              </Link>
+            ))}
+            <a href={PROFILE.resume} download onClick={close} className="s-drawer-secondary">
+              Baixar currículo
+            </a>
+          </nav>
+        </>,
+        document.body,
+      )}
+    </div>
+  );
+}
 
 export function Header() {
   const active = useActiveSection();
@@ -56,19 +146,7 @@ export function Header() {
           <Link to="/#contato" className="s-pill">
             Conversar
           </Link>
-          <details className="s-menu">
-            <summary aria-label="Abrir menu">Menu</summary>
-            <nav aria-label="Navegação mobile">
-              {NAV.map((item) => (
-                <Link key={item.id} to={`/#${item.id}`}>
-                  {item.label}
-                </Link>
-              ))}
-              <a href={PROFILE.resume} download>
-                Baixar currículo
-              </a>
-            </nav>
-          </details>
+          <SideMenu active={active} />
         </div>
       </div>
     </header>
