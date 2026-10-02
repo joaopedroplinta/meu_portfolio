@@ -882,12 +882,38 @@ li:hover > .tool-icon {
 }
 .cred-group a {
   display: grid;
-  grid-template-columns: 110px minmax(0, 1fr) minmax(0, 220px) 24px;
-  align-items: baseline;
+  grid-template-columns: 104px 110px minmax(0, 1fr) minmax(0, 220px) 24px;
+  align-items: center;
   gap: 20px;
-  padding: 18px 0;
+  padding: 14px 0;
   border-top: 1px solid var(--line);
   text-decoration: none;
+}
+.cred-thumb {
+  width: 104px;
+  height: 78px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  object-fit: contain;
+  object-position: center;
+  transition: transform 300ms var(--ease);
+}
+.cred-thumb-text {
+  display: grid;
+  place-items: center;
+  padding: 6px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+@media (hover: hover) and (pointer: fine) {
+  .cred-group a:hover .cred-thumb {
+    transform: scale(1.06);
+  }
 }
 .cred-group time {
   color: var(--muted);
@@ -1376,20 +1402,27 @@ button.s-link {
     gap: 16px;
   }
   .cred-group a {
-    grid-template-columns: minmax(0, 1fr) 24px;
-    gap: 4px 16px;
+    grid-template-columns: 72px minmax(0, 1fr) 24px;
+    gap: 2px 16px;
+  }
+  .cred-thumb {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    width: 72px;
+    height: 54px;
   }
   .cred-group time,
-  .cred-issuer {
-    grid-column: 1;
-  }
-  .cred-group .icon {
+  .cred-issuer,
+  .cred-title {
     grid-column: 2;
-    grid-row: 1 / span 3;
-    align-self: center;
   }
   .cred-title {
     grid-row: 1;
+  }
+  .cred-group .icon {
+    grid-column: 3;
+    grid-row: 1 / span 3;
+    align-self: center;
   }
 }
 @media (max-width: 560px) {

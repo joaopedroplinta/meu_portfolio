@@ -384,6 +384,13 @@ function Credentials() {
               {(all ? group.items : group.items.slice(0, CRED_PREVIEW)).map((item) => (
                 <li key={item.url}>
                   <a href={item.url} target="_blank" rel="noopener noreferrer" aria-label={`${item.title}, ${item.issuer}. Ver credencial em nova aba`}>
+                    {item.image ? (
+                      <img className="cred-thumb" src={item.image} alt="" width="104" height="78" loading="lazy" decoding="async" />
+                    ) : (
+                      <span className="cred-thumb cred-thumb-text" aria-hidden="true">
+                        {item.issuer}
+                      </span>
+                    )}
                     <time dateTime={item.date}>{item.dateLabel}</time>
                     <span className="cred-title">{item.title}</span>
                     <span className="cred-issuer">{item.issuer}</span>
