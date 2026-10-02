@@ -128,5 +128,6 @@ export const EVENT_CERTIFICATES: Certificate[] = [
     date: "2026-08",
     dateLabel: "ago. 2026",
     url: "https://eventos.codecon.dev/certificados/329690709590240229",
+    image: "/certificados/codecon-summit.webp",
   },
 ] as const;
