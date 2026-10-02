@@ -1,7 +1,6 @@
 import "./site/site.css";
 import { useEffect } from "react";
 import { Route, Routes, useLocation, Navigate } from "react-router-dom";
-import { LazyMotion, domAnimation, MotionConfig } from "motion/react";
 import { Header, Footer } from "./site/Layout";
 import { Home } from "./site/Home";
 import { CasePage, NotFound } from "./site/CasePage";
@@ -19,23 +18,21 @@ function ScrollManager() {
 
 export default function App() {
   return (
-    <LazyMotion features={domAnimation} strict>
-      <MotionConfig reducedMotion="user">
-        <a className="s-skip" href="#main">
-          Pular para o conteúdo
-        </a>
-        <ScrollManager />
-        <Header />
-        <main id="main" tabIndex={-1}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/projetos/:slug" element={<CasePage />} />
-            <Route path="/projetos" element={<Navigate to="/#trabalho" replace />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </main>
-        <Footer />
-      </MotionConfig>
-    </LazyMotion>
+    <>
+    <a className="s-skip" href="#main">
+      Pular para o conteúdo
+    </a>
+    <ScrollManager />
+    <Header />
+    <main id="main" tabIndex={-1}>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/projetos/:slug" element={<CasePage />} />
+        <Route path="/projetos" element={<Navigate to="/#trabalho" replace />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </main>
+    <Footer />
+    </>
   );
 }
