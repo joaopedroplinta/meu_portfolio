@@ -32,21 +32,21 @@ export const SKILL_GROUPS: SkillGroup[] = [
     description:
       "Regras de negócio, autenticação e integrações que conectam o produto.",
     icon: "layers",
-    items: ["PHP / Laravel", "Node.js", "Inertia.js", "APIs REST"],
+    items: ["PHP", "Laravel", "Node.js", "Inertia.js", "APIs REST"],
   },
   {
     title: "Dados e infraestrutura",
     description:
       "Da modelagem dos dados à entrega e manutenção da aplicação em produção.",
     icon: "database",
-    items: ["PostgreSQL / MySQL", "Redis", "Docker", "Kubernetes"],
+    items: ["PostgreSQL", "MySQL", "Redis", "Docker", "Kubernetes"],
   },
   {
     title: "Entrega e observabilidade",
     description:
       "Pipelines que testam e publicam, e métricas que mostram o que o sistema faz em produção.",
     icon: "layers",
-    items: ["GitHub Actions", "Jenkins", "Prometheus", "Linux / eBPF", "Vercel / Render / Railway"],
+    items: ["GitHub Actions", "Jenkins", "Prometheus", "Linux", "eBPF", "Vercel", "Render", "Railway"],
   },
 ];
 
