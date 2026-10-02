@@ -812,19 +812,57 @@ main:focus {
   font-size: 15px;
 }
 .craft-group ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 12px;
+  width: 100%;
   margin: 0 0 20px;
   padding: 0;
   list-style: none;
 }
 .craft-group li {
-  padding: 6px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  font-size: 15px;
+}
+.tool-icon {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  color: var(--muted);
+  transition: color 200ms ease;
+}
+li:hover > .tool-icon {
+  color: var(--ink);
 }
 .craft-group .s-link {
   margin-top: auto;
 }
 .craft-more {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 28px;
   margin-top: 48px;
   color: var(--muted);
+}
+.craft-more ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.craft-more li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+  color: var(--ink);
+  font-size: 15px;
 }
 
 /* Certificados */

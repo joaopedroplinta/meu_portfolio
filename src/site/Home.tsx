@@ -5,6 +5,7 @@ import { CERTIFICATIONS, EVENT_CERTIFICATES } from "../data/certifications";
 import { CASE_STUDIES } from "../data/caseStudies";
 import { Icon } from "../components/UI";
 import { FEATURED, type Featured } from "./content";
+import { TOOL_ICONS } from "./toolIcons";
 
 function CoverFigure() {
   return (
@@ -295,6 +296,22 @@ function About() {
   );
 }
 
+function ToolIcon({ name }: { name: string }) {
+  const path = TOOL_ICONS[name];
+  return (
+    <svg className="tool-icon" viewBox="0 0 24 24" aria-hidden="true">
+      {path ? (
+        <path d={path} fill="currentColor" />
+      ) : (
+        // Sem logo no Simple Icons (eBPF, APIs REST): colchetes de código.
+        <path d="m8 7-5 5 5 5m8-10 5 5-5 5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+      )}
+    </svg>
+  );
+}
+
+const ALSO_USE = ["Python", "Java", "C++", "MongoDB", "Figma"];
+
 const SKILL_LINKS: Record<string, { to: string; label: string }> = {
   Interfaces: { to: "/projetos/plana", label: "Na interface do Plana" },
   "Aplicações e APIs": { to: "/projetos/hackathon-ifpr", label: "Nas regras do Hackathon" },
@@ -317,7 +334,10 @@ function Craft() {
               <p>{group.description}</p>
               <ul>
                 {group.items.map((item) => (
-                  <li key={item}>{item}</li>
+                  <li key={item}>
+                    <ToolIcon name={item} />
+                    {item}
+                  </li>
                 ))}
               </ul>
               <Link to={SKILL_LINKS[group.title].to} className="s-link">
@@ -326,7 +346,17 @@ function Craft() {
             </div>
           ))}
         </div>
-        <p className="craft-more">Também uso Python, Java, C++, MongoDB e Figma.</p>
+        <div className="craft-more">
+          <p>Também uso</p>
+          <ul>
+            {ALSO_USE.map((item) => (
+              <li key={item}>
+                <ToolIcon name={item} />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   );
