@@ -1,1 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#18253b"/><text x="11" y="44" font-family="Arial,sans-serif" font-size="40" font-weight="700" letter-spacing="-3" fill="#fff">jp</text><circle cx="52" cy="44" r="4" fill="#83a6ff"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="7" fill="#141518"/>
+  <g fill="none" stroke="#F2A33A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 9v10a4 4 0 0 1-8 0"/>
+    <path d="M19 23V9h4a4 4 0 0 1 0 8h-4"/>
+  </g>
+</svg>

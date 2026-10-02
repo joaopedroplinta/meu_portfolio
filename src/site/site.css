@@ -201,14 +201,24 @@ main:focus {
 .s-nav a[aria-current] {
   color: var(--ink);
 }
-.s-nav a[aria-current]::after {
-  content: "";
+.s-nav {
+  position: relative;
+}
+.s-nav-indicator {
   position: absolute;
-  right: 0;
   bottom: 2px;
   left: 0;
-  height: 1px;
+  width: var(--ind-w, 0);
+  height: 2px;
+  border-radius: 2px;
   background: var(--accent);
+  opacity: var(--ind-opacity, 0);
+  transform: translateX(var(--ind-x, 0));
+  transition:
+    transform 420ms var(--ease),
+    width 420ms var(--ease),
+    opacity 200ms ease;
+  pointer-events: none;
 }
 .s-header-actions {
   display: flex;
@@ -363,6 +373,10 @@ main:focus {
   grid-column: 1;
   grid-row: 1;
 }
+.cover-lines li:nth-child(4) {
+  grid-column: 1;
+  grid-row: 2;
+}
 .cover-lines li:nth-child(2) {
   grid-column: 3;
   grid-row: 1;
@@ -378,7 +392,8 @@ main:focus {
   width: fit-content;
   max-width: 100%;
 }
-.cover-lines li:nth-child(n + 2) {
+.cover-lines li:nth-child(2),
+.cover-lines li:nth-child(3) {
   justify-self: end;
 }
 .cover-arrow {
@@ -405,10 +420,12 @@ main:focus {
   }
 }
 /* Setas saem do pinguim e apontam para cada chamada. */
-.cover-lines li:nth-child(1) .cover-arrow {
+.cover-lines li:nth-child(1) .cover-arrow,
+.cover-lines li:nth-child(4) .cover-arrow {
   left: calc(100% + 16px);
 }
-.cover-lines li:nth-child(n + 2) .cover-arrow {
+.cover-lines li:nth-child(2) .cover-arrow,
+.cover-lines li:nth-child(3) .cover-arrow {
   right: calc(100% + 16px);
   transform: scaleX(-1);
 }
@@ -773,10 +790,13 @@ main:focus {
 /* Ferramentas */
 .craft-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: clamp(32px, 4vw, 64px);
 }
 .craft-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   padding-top: 24px;
   border-top: 1px solid var(--ink);
 }
@@ -792,12 +812,15 @@ main:focus {
   font-size: 15px;
 }
 .craft-group ul {
-  margin: 0 0 12px;
+  margin: 0 0 20px;
   padding: 0;
   list-style: none;
 }
 .craft-group li {
   padding: 6px 0;
+}
+.craft-group .s-link {
+  margin-top: auto;
 }
 .craft-more {
   margin-top: 48px;
