@@ -1,5 +1,12 @@
+import { Link } from "react-router-dom";
 import { SKILL_GROUPS } from "../data";
 import { Icon, SectionHeader } from "./UI";
+
+const EXAMPLES = {
+  code: { href: "/projetos/plana", label: "Na interface do Plana" },
+  layers: { href: "/projetos/hackathon-ifpr", label: "Nas regras do Hackathon" },
+  database: { href: "/projetos/plana", label: "Na infraestrutura do Plana" },
+};
 
 export function Skills() {
   return (
@@ -11,8 +18,8 @@ export function Skills() {
       <div className="container">
         <div id="skills-title">
           <SectionHeader
-            title="O que uso para construir"
-            description="Minha base de trabalho, da interface ao ambiente de produção."
+            title="Ferramentas, em contexto."
+            description="As tecnologias fazem mais sentido quando você vê onde elas entram."
           />
         </div>
         <div className="skills-grid">
@@ -28,6 +35,9 @@ export function Skills() {
                   <li key={item}>{item}</li>
                 ))}
               </ul>
+              <Link className="skill-example" to={EXAMPLES[group.icon].href}>
+                {EXAMPLES[group.icon].label} <Icon name="arrow-up-right" />
+              </Link>
             </article>
           ))}
         </div>

@@ -35,9 +35,10 @@ export function Contact() {
             Para falar sobre um projeto, uma oportunidade ou trocar uma ideia
             sobre desenvolvimento, me encontre por aqui.
           </p>
-          <a className="button button-light" href={`mailto:${PROFILE.email}`}>
-            Entre em contato <Icon name="arrow-up-right" />
-          </a>
+          <div className="contact-options">
+            <a href={`mailto:${PROFILE.email}?subject=Vamos%20conversar%20sobre%20um%20projeto`}><span>Tenho um projeto</span><p>Conversar sobre uma aplicação ou produto.</p><Icon name="arrow-up-right" /></a>
+            <a href={`mailto:${PROFILE.email}?subject=Oportunidade%20profissional`}><span>Tenho uma oportunidade</span><p>Conversar sobre uma vaga ou colaboração.</p><Icon name="arrow-up-right" /></a>
+          </div>
         </div>
         <div className="contact-details">
           <span className="contact-detail-label">Fale comigo por e-mail</span>

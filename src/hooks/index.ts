@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 export function useActiveSection() {
   const [active, setActive] = useState("hero");
+  const { pathname } = useLocation();
   useEffect(() => {
     const sections = [
       ...document.querySelectorAll<HTMLElement>("main > section[id]"),
@@ -25,6 +27,6 @@ export function useActiveSection() {
       window.removeEventListener("scroll", schedule);
       window.removeEventListener("resize", schedule);
     };
-  }, []);
+  }, [pathname]);
   return active;
 }
