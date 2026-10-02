@@ -230,7 +230,7 @@ Ao preparar os cases, aprofundar a participação e os aprendizados específicos
 
 ### Revisão do personagem
 
-O João rejeitou a primeira ilustração vetorial e o ícone por aparência infantil e proporções estranhas. A direção foi ajustada para preto e branco, traço de tatuagem, textura de tinta, corpo compacto e óculos angulares. A nova ilustração está em `public/brand/pinguim-ink-v2.png`, gerada usando a foto da tatuagem como referência, com fundo transparente. A abertura usa uma superfície neutra de papel para dar contraste ao desenho. O ícone anterior foi retirado do cabeçalho e do favicon; uma marca pequena será desenvolvida depois de acertar o personagem. Build, TypeScript e lint passaram nesta revisão; a composição foi conferida em desktop. Revisão mobile continua pendente.
+O João rejeitou a primeira ilustração vetorial e o ícone por aparência infantil e proporções estranhas. A direção foi ajustada para preto e branco, traço de tatuagem, textura de tinta, corpo compacto e óculos angulares. A nova ilustração está em `docs/brand/pinguim-ink-v2.png` (matriz; o site usa a versão `.webp` em `public/brand/`), gerada usando a foto da tatuagem como referência, com fundo transparente. A abertura usa uma superfície neutra de papel para dar contraste ao desenho. O ícone anterior foi retirado do cabeçalho e do favicon; uma marca pequena será desenvolvida depois de acertar o personagem. Build, TypeScript e lint passaram nesta revisão; a composição foi conferida em desktop. Revisão mobile continua pendente.
 
 - [x] Analisar quatro referências e o código atual.
 - [x] Definir o pinguim de óculos como origem da identidade.
