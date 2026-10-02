@@ -1,78 +1,98 @@
-# Portfólio - João Pedro Plinta
+# João Pedro Plinta, portfólio
 
-Este é meu portfólio pessoal, desenvolvido com React e TypeScript, apresentando meus projetos e habilidades como desenvolvedor Full Stack.
+Portfólio pessoal de desenvolvedor full stack, no ar em **[joaoplintaportfolio.dev](https://joaoplintaportfolio.dev/)**.
 
-## 🚀 Tecnologias
+A abertura é uma capa de revista: o nome "Pinguim" (o apelido, e o pinguim que tenho tatuado) ocupando a largura, com setas apontando para os projetos. Abaixo vêm quatro estudos de caso, o Sobre, as ferramentas, os certificados e o contato.
 
-- [React](https://reactjs.org/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Vite](https://vitejs.dev/)
+## O que tem no site
 
-## 💻 Pré-requisitos
+- **Estudos de caso** em `/projetos/:slug`, com decisões, números conferidos nos repositórios e telas reais (com dados de demonstração):
+  - **Plana**, SaaS de agendamentos em produção;
+  - **Hackathon IFPR**, plataforma para operar um evento de ponta a ponta;
+  - **Minicurso eBPF**, extensão apresentada no SciTec do IFPR;
+  - **TCC**, benchmark de overhead de eBPF, Sysstat e Prometheus.
+- Scroll narrativo na seção de trabalho, prévia da tela que segue o mouse nas chamadas da capa e carrossel de telas no celular.
+- Tema claro e escuro, que respeita a preferência do sistema e `prefers-reduced-motion`.
+- Open Graph para prévia de compartilhamento, favicon e página 404.
 
-Antes de começar, verifique se você tem os seguintes requisitos:
+## Stack
 
-- Node.js (versão 18 ou superior)
-- npm ou yarn
+- [React 18](https://react.dev/) e [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vite.dev/)
+- [React Router](https://reactrouter.com/) para as rotas dos estudos de caso
+- [Motion](https://motion.dev/) para as animações de entrada
+- CSS próprio, sem framework, em `src/site/site.css`
+- Fontes Manrope e JetBrains Mono, pelo Google Fonts
+- Deploy na [Vercel](https://vercel.com/)
 
-## 🔧 Instalação
+## Como rodar
 
-1. Clone o repositório:
+Requer Node.js 20 ou superior.
+
 ```bash
-git clone https://github.com/joaopedroplinta/portfolio.git
-```
-
-2. Acesse o diretório do projeto:
-```bash
-cd portfolio
-```
-
-3. Instale as dependências:
-```bash
+git clone https://github.com/joaopedroplinta/meu_portfolio.git
+cd meu_portfolio
 npm install
+npm run dev        # http://localhost:5173
 ```
 
-## 🚀 Uso
-
-Para iniciar o servidor de desenvolvimento:
+Outros comandos:
 
 ```bash
-npm run dev
+npm run build      # build de produção em dist/
+npm run preview    # serve o build localmente
+npm run lint       # ESLint
 ```
 
-Para criar uma build de produção:
-
-```bash
-npm run build
-```
-
-## 📝 Estrutura do Projeto
+## Estrutura
 
 ```
 src/
-├── components/     # Componentes React
-├── data/          # Dados estáticos (projetos, habilidades)
-├── App.tsx        # Componente principal
-└── main.tsx       # Ponto de entrada
+├── site/            # o site atual
+│   ├── Home.tsx     # capa, trabalho, sobre, ferramentas, certificados e contato
+│   ├── CasePage.tsx # página de estudo de caso
+│   ├── Layout.tsx   # cabeçalho e rodapé
+│   ├── content.ts   # os projetos em destaque (vitrine e capa)
+│   └── site.css     # todos os estilos
+├── data/            # conteúdo
+│   ├── index.ts         # perfil, projetos, ferramentas e linha do tempo
+│   ├── caseStudies.ts   # os estudos de caso
+│   └── certifications.ts
+├── components/      # site anterior (v1.0.0), sem uso
+└── index.css        # estilos do site anterior, sem uso
+public/
+├── brand/           # pinguim de tinta
+├── plana/ hackathon/ tcc/   # telas e gráficos dos estudos de caso
+└── og.png           # imagem de compartilhamento
+docs/                # planejamento e direção visual
 ```
 
-## 🤝 Contribuições
+## Como editar o conteúdo
 
-Contribuições são sempre bem-vindas! Para contribuir:
+| Quero mudar | Arquivo |
+| --- | --- |
+| Texto de um estudo de caso | `src/data/caseStudies.ts` |
+| Resumo e ficha do projeto na vitrine | `src/site/content.ts` |
+| Projetos menores, ferramentas, linha do tempo, links de contato | `src/data/index.ts` |
+| Cursos e certificados | `src/data/certifications.ts` |
+| Cores, fontes e espaçamentos | variáveis no topo de `src/site/site.css` |
 
-1. Fork o projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
-3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
-4. Push para a branch (`git push origin feature/AmazingFeature`)
-5. Abra um Pull Request
+O texto dos estudos de caso só afirma o que está no repositório de cada projeto. Ao mudar um número ou uma decisão, confira na fonte.
 
-## 📫 Contato
+## Deploy
 
+A Vercel publica a `main` automaticamente e cria um preview para cada pull request. O `vercel.json` manda qualquer rota para o `index.html`, para que um link direto como `/projetos/plana` funcione.
+
+## Versão anterior
+
+A versão do portfólio antes do redesign está guardada na release [v1.0.0](https://github.com/joaopedroplinta/meu_portfolio/releases/tag/v1.0.0). Para voltar a ela: `git checkout v1.0.0`.
+
+## Contato
+
+- E-mail: joaopedrohenriqueplinta@gmail.com
+- LinkedIn: [joao-pedro-plinta](https://linkedin.com/in/joao-pedro-plinta)
 - GitHub: [@joaopedroplinta](https://github.com/joaopedroplinta)
-- LinkedIn: [João Pedro Plinta](https://www.linkedin.com/in/joao-pedro-plinta/)
-- Email: joaopedrohenriqueplinta@gmail.com
 
-## 📄 Licença
+## Licença
 
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+[MIT](LICENSE)
