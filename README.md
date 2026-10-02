@@ -20,7 +20,6 @@ A abertura é uma capa de revista: o nome "Pinguim" (o apelido, e o pinguim que 
 - [React 18](https://react.dev/) e [TypeScript](https://www.typescriptlang.org/)
 - [Vite](https://vite.dev/)
 - [React Router](https://reactrouter.com/) para as rotas dos estudos de caso
-- [Motion](https://motion.dev/) para as animações de entrada
 - CSS próprio, sem framework, em `src/site/site.css`
 - Fontes Manrope e JetBrains Mono, pelo Google Fonts
 - Deploy na [Vercel](https://vercel.com/)
@@ -51,15 +50,17 @@ src/
 ├── site/            # o site atual
 │   ├── Home.tsx     # capa, trabalho, sobre, ferramentas, certificados e contato
 │   ├── CasePage.tsx # página de estudo de caso
-│   ├── Layout.tsx   # cabeçalho e rodapé
+│   ├── Layout.tsx   # cabeçalho, menu lateral e rodapé
+│   ├── UI.tsx       # ícones
+│   ├── ThemeToggle.tsx
+│   ├── toolIcons.ts # logos das ferramentas (Simple Icons)
 │   ├── content.ts   # os projetos em destaque (vitrine e capa)
 │   └── site.css     # todos os estilos
 ├── data/            # conteúdo
 │   ├── index.ts         # perfil, projetos, ferramentas e linha do tempo
 │   ├── caseStudies.ts   # os estudos de caso
 │   └── certifications.ts
-├── components/      # site anterior (v1.0.0), sem uso
-└── index.css        # estilos do site anterior, sem uso
+└── hooks/           # seção ativa na rolagem
 public/
 ├── brand/           # pinguim de tinta
 ├── plana/ hackathon/ tcc/   # telas e gráficos dos estudos de caso

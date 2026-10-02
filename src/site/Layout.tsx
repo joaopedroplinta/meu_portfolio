@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
 import { PROFILE } from "../data";
 import { useActiveSection } from "../hooks";
-import { ThemeToggle } from "../components/ThemeToggle";
+import { ThemeToggle } from "./ThemeToggle";
 
 const NAV = [
   { id: "trabalho", label: "Trabalho" },

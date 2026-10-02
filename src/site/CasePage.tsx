@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { PROJECTS } from "../data";
 import { CASE_STUDIES } from "../data/caseStudies";
-import { Icon } from "../components/UI";
+import { Icon } from "./UI";
 import { FEATURED } from "./content";
 import { Contact } from "./Home";
 

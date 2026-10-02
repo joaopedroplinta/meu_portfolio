@@ -1,9 +1,0 @@
-export { Navbar }        from "./Navbar";
-export { Hero }          from "./Hero";
-export { About }         from "./About";
-export { Certifications } from "./Certifications";
-export { Skills }        from "./Skills";
-export { Projects }      from "./Projects";
-export { Contact }       from "./Contact";
-export { Footer }        from "./Footer";
-export { Icon, SectionHeader } from "./UI";
