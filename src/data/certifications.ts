@@ -1,6 +1,16 @@
 // Seleção a partir da seção de licenças e certificados do LinkedIn.
 // Inventário e origem: docs/certificados-linkedin.md.
-export const CERTIFICATIONS = [
+export interface Certificate {
+  title: string;
+  issuer: string;
+  area: string;
+  date: string;
+  dateLabel: string;
+  url: string;
+  image?: string;
+}
+
+export const CERTIFICATIONS: Certificate[] = [
   {
     title: "Foundations of Cybersecurity",
     issuer: "Google",
@@ -8,6 +18,7 @@ export const CERTIFICATIONS = [
     date: "2026-09",
     dateLabel: "set. 2026",
     url: "https://www.coursera.org/account/accomplishments/records/3IAPOZLZXKOV",
+    image: "/certificados/google-cybersecurity.webp",
   },
   {
     title: "Claude Academy: Claude Code 101",
@@ -24,6 +35,7 @@ export const CERTIFICATIONS = [
     date: "2025-04",
     dateLabel: "abr. 2025",
     url: "https://www.credly.com/badges/06d9818c-eba3-494b-98a9-3482a37fdde3/linked_in_profile",
+    image: "/certificados/cisco-cybersecurity.webp",
   },
   {
     title: "Networking Basics",
@@ -32,6 +44,7 @@ export const CERTIFICATIONS = [
     date: "2025-04",
     dateLabel: "abr. 2025",
     url: "https://www.credly.com/badges/b0729a85-7ee2-4256-94ad-1981c2b71c13/linked_in_profile",
+    image: "/certificados/cisco-networking.webp",
   },
   {
     title: "Conceitos básicos: dados, dados em todos os lugares",
@@ -40,6 +53,7 @@ export const CERTIFICATIONS = [
     date: "2025-02",
     dateLabel: "fev. 2025",
     url: "https://www.coursera.org/account/accomplishments/records/BTPJ0EG6FXWP",
+    image: "/certificados/google-dados.webp",
   },
   {
     title: "NLW Pocket: Javascript — Full-stack Intermediário",
@@ -91,7 +105,7 @@ export const CERTIFICATIONS = [
   },
 ] as const;
 
-export const EVENT_CERTIFICATES = [
+export const EVENT_CERTIFICATES: Certificate[] = [
   {
     title: "LINUXtips na Codecon Summit 2026",
     issuer: "LINUXtips",
