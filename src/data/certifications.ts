@@ -120,6 +120,7 @@ export const EVENT_CERTIFICATES: Certificate[] = [
     date: "2026-09",
     dateLabel: "set. 2026",
     url: "https://credentials.linuxtips.io/b/5209ab9c-1f04-4ce0-b23c-9dc6f9f47091",
+    image: "/certificados/linuxtips-codecon.webp",
   },
   {
     title: "Codecon",
