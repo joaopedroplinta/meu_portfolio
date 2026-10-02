@@ -85,4 +85,24 @@ int BPF_KPROBE(trace_tcp_sendmsg, struct sock *sk,
     return 0;
 }`,
   },
+  {
+    id: "tcc-monitoramento",
+    slug: "tcc-monitoramento",
+    name: "TCC",
+    kind: "Pesquisa sobre monitoramento de redes virtualizadas",
+    summary:
+      "Quanto custa observar um sistema? Medimos o overhead de eBPF, Sysstat e Prometheus monitorando um WAF, em 360 execuções reprodutíveis. A defesa final ainda está por vir.",
+    facts: [
+      { label: "Experimento", value: "3 ferramentas, 4 volumes, 30 repetições" },
+      { label: "Resultado", value: "eBPF com menor tempo de resposta, de 8% a 15%" },
+      { label: "Estatística", value: "Média com intervalo de confiança de 95%" },
+      { label: "Status", value: "Passou pela pré-banca, defesa final pendente" },
+    ],
+    panel: "#ece6d9",
+    panelInk: "#2b2012",
+    image: {
+      src: "/tcc/tempo-resposta.webp",
+      alt: "Gráfico do tempo de resposta médio do observador por volume de mensagens, comparando eBPF, sysstat e Prometheus",
+    },
+  },
 ];

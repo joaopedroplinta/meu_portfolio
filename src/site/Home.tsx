@@ -58,7 +58,7 @@ function CursorPreview({ project }: { project: Featured | null }) {
     };
   }, []);
   return (
-    <div ref={box} className="cursor-preview" data-side={project && project.id !== FEATURED[0].id ? "left" : "right"} aria-hidden="true">
+    <div ref={box} className="cursor-preview" data-side={project && ["hackathon", "ebpf-scitec"].includes(project.id) ? "left" : "right"} aria-hidden="true">
       {FEATURED.map((item) => (
         <div
           key={item.id}
@@ -115,9 +115,8 @@ function Cover() {
       </div>
       <div className="s-wrap cover-intro">
         <p>
-          Construo produtos web inteiros: modelo o banco, escrevo a API, desenho a
-          interface e coloco em produção. Estudo Ciência da Computação e programo
-          desde 2018.
+          Gosto de entender como as coisas funcionam, e de construí-las inteiras.
+          Do banco de dados ao kernel.
         </p>
         <div className="cover-actions">
           <Link to="/#trabalho" className="s-button">
@@ -137,12 +136,14 @@ const ARROWS = [
   "M134 52c-18 6-40 9-61 1C51 45 30 33 10 22",
   "M134 30c-20-8-44-12-66-6-21 5-40 4-58-2",
   "M134 8c-12 18-34 34-60 36-24 2-46-8-64-22",
+  "M134 14c-16 10-38 26-62 26-26 0-48-8-62-20",
 ];
 
 const coverLine: Record<string, string> = {
   plana: "Um SaaS do banco de dados ao deploy",
   hackathon: "O sistema de um evento inteiro",
   "ebpf-scitec": "Olhando por dentro do kernel",
+  "tcc-monitoramento": "Quanto custa monitorar uma rede",
 };
 
 function StoryFrames({ project }: { project: Featured }) {
@@ -189,7 +190,7 @@ function Work() {
       <div className="s-wrap">
         <div className="s-heading">
           <h2 id="work-title">Trabalho selecionado</h2>
-          <p>Três projetos contados em detalhe: o problema, as decisões e o que foi para produção.</p>
+          <p>Quatro projetos contados em detalhe: o problema, as decisões e o que ficou pronto.</p>
         </div>
         {FEATURED.map((project) => (
           <article key={project.id} className="work-item" aria-labelledby={`work-${project.id}`}>
@@ -295,9 +296,10 @@ function About() {
 }
 
 const SKILL_LINKS: Record<string, { to: string; label: string }> = {
-  code: { to: "/projetos/plana", label: "Na interface do Plana" },
-  layers: { to: "/projetos/hackathon-ifpr", label: "Nas regras do Hackathon" },
-  database: { to: "/projetos/plana", label: "Na infraestrutura do Plana" },
+  Interfaces: { to: "/projetos/plana", label: "Na interface do Plana" },
+  "Aplicações e APIs": { to: "/projetos/hackathon-ifpr", label: "Nas regras do Hackathon" },
+  "Dados e infraestrutura": { to: "/projetos/plana", label: "Na infraestrutura do Plana" },
+  "Entrega e observabilidade": { to: "/projetos/tcc-monitoramento", label: "No benchmark do TCC" },
 };
 
 function Craft() {
@@ -318,8 +320,8 @@ function Craft() {
                   <li key={item}>{item}</li>
                 ))}
               </ul>
-              <Link to={SKILL_LINKS[group.icon].to} className="s-link">
-                {SKILL_LINKS[group.icon].label}
+              <Link to={SKILL_LINKS[group.title].to} className="s-link">
+                {SKILL_LINKS[group.title].label}
               </Link>
             </div>
           ))}
