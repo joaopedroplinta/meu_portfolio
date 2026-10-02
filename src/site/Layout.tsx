@@ -1,3 +1,4 @@
+import { useLayoutEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { PROFILE } from "../data";
 import { useActiveSection } from "../hooks";
@@ -12,13 +13,32 @@ const NAV = [
 
 export function Header() {
   const active = useActiveSection();
+  const nav = useRef<HTMLElement>(null);
+
+  // O traço sob o item ativo desliza de um link para o outro em vez de aparecer e sumir.
+  useLayoutEffect(() => {
+    const el = nav.current;
+    if (!el) return;
+    const place = () => {
+      const link = el.querySelector<HTMLElement>("a[aria-current]");
+      el.style.setProperty("--ind-opacity", link ? "1" : "0");
+      if (link) {
+        el.style.setProperty("--ind-x", `${link.offsetLeft}px`);
+        el.style.setProperty("--ind-w", `${link.offsetWidth}px`);
+      }
+    };
+    place();
+    window.addEventListener("resize", place);
+    return () => window.removeEventListener("resize", place);
+  }, [active]);
+
   return (
     <header className="s-header">
       <div className="s-wrap s-header-row">
         <Link to="/" className="s-brand" aria-label="João Pedro Plinta, início">
           <span>João Pedro Plinta</span>
         </Link>
-        <nav className="s-nav" aria-label="Navegação principal">
+        <nav ref={nav} className="s-nav" aria-label="Navegação principal">
           {NAV.map((item) => (
             <Link
               key={item.id}
@@ -28,6 +48,7 @@ export function Header() {
               {item.label}
             </Link>
           ))}
+          <span className="s-nav-indicator" aria-hidden="true" />
         </nav>
         <div className="s-header-actions">
           <ThemeToggle />
