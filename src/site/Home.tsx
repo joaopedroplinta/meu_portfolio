@@ -190,7 +190,7 @@ function Work() {
     <section id="trabalho" className="work" aria-labelledby="work-title">
       <div className="s-wrap">
         <div className="s-heading">
-          <h2 id="work-title">Trabalho selecionado</h2>
+          <h2 id="work-title">Trabalhos selecionados</h2>
           <p>Quatro projetos contados em detalhe: o problema, as decisões e o que ficou pronto.</p>
         </div>
         {FEATURED.map((project) => (
@@ -275,7 +275,6 @@ function About() {
             decisões por trás de cada parte. O estágio em suporte técnico me ensinou que o
             software precisa funcionar para quem está do outro lado da tela.
           </p>
-          <p>O pinguim tatuado veio antes do site. O apelido também.</p>
           <ol className="about-timeline" aria-label="Experiência e formação">
             {TIMELINE.map((item) => (
               <li key={item.year}>

@@ -172,12 +172,12 @@ export const TIMELINE: TimelineItem[] = [
   {
     year: "2025 — presente",
     title: "Estágio em desenvolvimento Full Stack",
-    desc: "Atuação como estagiário em desenvolvimento full-stack, trabalhando com a stack PHP, JavaScript e PostgreSQL.",
+    desc: "Atuação como estagiário em desenvolvimento full-stack, trabalhando com a stack PHP, JavaScript e PostgreSQL. Desde a concepção de novas funcionalidades até a entrega em produção, passando por testes e integração contínua. Reuniões com clientes, prototipagem, planejamento e documentação também fazem parte do dia a dia.",
   },
   {
     year: "2024 — 2025",
     title: "Estágio em suporte técnico",
-    desc: "Atuação como estagiário em suporte técnico de sistemas e hardware.",
+    desc: "Atuação como estagiário em suporte técnico de sistemas e hardware. Atendimento a usuários, resolução de problemas e manutenção de equipamentos.",
   },
   {
     year: "2023 — 2026",
@@ -187,6 +187,6 @@ export const TIMELINE: TimelineItem[] = [
   {
     year: "2018",
     title: "Primeiros passos",
-    desc: "Primeiros passos com programação.",
+    desc: "Primeiros passos com programação. Comecei a aprender estudando e fazendo parte de uma equipe de robótica, onde consegui aprender conceitos de programação, lógica e trabalho em equipe.",
   },
 ];
