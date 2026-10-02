@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { NAV_LINKS, PROFILE } from "../data";
 import { useActiveSection } from "../hooks";
@@ -48,22 +49,19 @@ export function Navbar() {
       }}
     >
       <div className="container header-inner">
-        <a
+        <Link
           className="wordmark"
-          href="#hero"
+          to="/#hero"
           aria-label="João Pedro Plinta, início"
           onClick={closeMenu}
         >
-          <span className="monogram" aria-hidden="true">
-            jp<span>.</span>
-          </span>
-          <span>João Pedro Plinta</span>
-        </a>
+          <span className="wordmark-name">João Pedro Plinta<span>Pode chamar de Pinguim.</span></span>
+        </Link>
         <nav className="desktop-nav" aria-label="Navegação principal">
           {NAV_LINKS.map((link) => (
-            <a
+            <Link
               key={link.href}
-              href={link.href}
+              to={`/${link.href}`}
               aria-current={
                 active === link.href.slice(1) ? "location" : undefined
               }
@@ -76,14 +74,14 @@ export function Navbar() {
                 />
               )}
               <span>{link.label}</span>
-            </a>
+            </Link>
           ))}
         </nav>
         <div className="header-actions">
           <ThemeToggle />
-          <a href="#contact" className="header-contact">
+          <Link to="/#contact" className="header-contact">
             Vamos conversar <Icon name="arrow-up-right" />
-          </a>
+          </Link>
           <button
             ref={menuButton}
             className="menu-toggle"
@@ -114,9 +112,9 @@ export function Navbar() {
             aria-label="Navegação mobile"
           >
             {NAV_LINKS.map((link) => (
-              <a
+              <Link
                 key={link.href}
-                href={link.href}
+                to={`/${link.href}`}
                 onClick={closeMenu}
                 aria-current={
                   active === link.href.slice(1) ? "location" : undefined
@@ -124,14 +122,14 @@ export function Navbar() {
               >
                 {link.label}
                 <Icon name="arrow-right" />
-              </a>
+              </Link>
             ))}
             <a href={PROFILE.resume} download onClick={closeMenu}>
               Baixar currículo <Icon name="download" />
             </a>
-            <a href="#contact" onClick={closeMenu}>
+            <Link to="/#contact" onClick={closeMenu}>
               Vamos conversar <Icon name="arrow-up-right" />
-            </a>
+            </Link>
           </m.nav>
         )}
       </AnimatePresence>

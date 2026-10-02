@@ -24,14 +24,19 @@ export function About() {
         <div className="about-copy">
           <p className="section-label">Sobre mim</p>
           <h2 id="about-title">
-            Comecei pela curiosidade.
+            João Pedro no nome.
             <br />
-            Continuei pela prática.
+            Pinguim no apelido.
           </h2>
           <p>
             Sou João Pedro, desenvolvedor Full Stack e estudante de Ciência da
             Computação. Comecei a programar em 2018, pela curiosidade de
             entender como as coisas funcionam.
+          </p>
+          <p>
+            Gosto de pinguins, tenho um tatuado e o apelido acabou virando parte
+            de como me apresento. Trouxe isso para o site porque este espaço
+            também precisa ter um pouco de mim.
           </p>
           <p>
             Hoje, trabalho com JavaScript, TypeScript e PHP, passando pela
@@ -61,6 +66,9 @@ export function About() {
           ))}
         </ol>
       </div>
+      <a className="text-link" href="#certifications">
+        Conhecer meus cursos e certificados <Icon name="arrow-down" />
+      </a>
     </section>
   );
 }

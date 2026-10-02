@@ -1,3 +1,5 @@
+> Arquivo: direção da versão anterior (azul, Manrope). A versão atual está em `plano-pinguim.md` e `direcao-visual-v3.md`.
+
 # Portfólio profissional
 
 ## Direção

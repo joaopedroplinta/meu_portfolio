@@ -8,6 +8,7 @@ export const PROFILE = {
 export const NAV_LINKS = [
   { href: "#projects", label: "Projetos" },
   { href: "#about", label: "Sobre" },
+  { href: "#certifications", label: "Certificados" },
   { href: "#skills", label: "Tecnologias" },
 ];
 
@@ -83,7 +84,7 @@ export const PROJECTS: Project[] = [
       "Uma plataforma de agendamentos para negócios de serviço, com gestão de profissionais, assinaturas e pagamentos. Em produção.",
     highlights: [
       "Agendamento online com isolamento de dados entre empresas, usando policies e scopes",
-      "Pacotes de sessões e assinatura recorrente, pagamento via PIX/cartão",
+      "Pacotes de sessões, planos mensais e pagamento via PIX/cartão com webhook em fila",
       "Entrega em produção com Docker, CI, testes E2E, Render e Neon",
     ],
     tags: [
