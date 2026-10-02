@@ -296,9 +296,10 @@ function About() {
 }
 
 const SKILL_LINKS: Record<string, { to: string; label: string }> = {
-  code: { to: "/projetos/plana", label: "Na interface do Plana" },
-  layers: { to: "/projetos/hackathon-ifpr", label: "Nas regras do Hackathon" },
-  database: { to: "/projetos/plana", label: "Na infraestrutura do Plana" },
+  Interfaces: { to: "/projetos/plana", label: "Na interface do Plana" },
+  "Aplicações e APIs": { to: "/projetos/hackathon-ifpr", label: "Nas regras do Hackathon" },
+  "Dados e infraestrutura": { to: "/projetos/plana", label: "Na infraestrutura do Plana" },
+  "Entrega e observabilidade": { to: "/projetos/tcc-monitoramento", label: "No benchmark do TCC" },
 };
 
 function Craft() {
@@ -319,8 +320,8 @@ function Craft() {
                   <li key={item}>{item}</li>
                 ))}
               </ul>
-              <Link to={SKILL_LINKS[group.icon].to} className="s-link">
-                {SKILL_LINKS[group.icon].label}
+              <Link to={SKILL_LINKS[group.title].to} className="s-link">
+                {SKILL_LINKS[group.title].label}
               </Link>
             </div>
           ))}

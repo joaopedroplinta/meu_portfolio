@@ -39,7 +39,14 @@ export const SKILL_GROUPS: SkillGroup[] = [
     description:
       "Da modelagem dos dados à entrega e manutenção da aplicação em produção.",
     icon: "database",
-    items: ["PostgreSQL / MySQL", "Docker", "Git / CI", "Vercel / Render"],
+    items: ["PostgreSQL / MySQL", "Redis", "Docker", "Kubernetes"],
+  },
+  {
+    title: "Entrega e observabilidade",
+    description:
+      "Pipelines que testam e publicam, e métricas que mostram o que o sistema faz em produção.",
+    icon: "layers",
+    items: ["GitHub Actions", "Jenkins", "Prometheus", "Linux / eBPF", "Vercel / Render / Railway"],
   },
 ];
 
