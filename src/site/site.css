@@ -662,6 +662,7 @@ main:focus {
 }
 .work-media {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   place-items: center;
   padding: clamp(18px, 3.4vw, 48px);
   border-radius: 16px;
@@ -681,6 +682,8 @@ main:focus {
 }
 .work-code {
   width: 100%;
+  min-width: 0;
+  max-width: 100%;
 }
 .work-code figcaption {
   margin-bottom: 14px;
@@ -1426,6 +1429,10 @@ button.s-link {
   }
 }
 @media (max-width: 560px) {
+  .contact-email {
+    font-size: 4.7vw;
+    overflow-wrap: normal;
+  }
   .s-header .s-pill {
     display: none;
   }
