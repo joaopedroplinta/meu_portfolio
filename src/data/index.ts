@@ -39,7 +39,14 @@ export const SKILL_GROUPS: SkillGroup[] = [
     description:
       "Da modelagem dos dados à entrega e manutenção da aplicação em produção.",
     icon: "database",
-    items: ["PostgreSQL / MySQL", "Docker", "Git / CI", "Vercel / Render"],
+    items: ["PostgreSQL / MySQL", "Redis", "Docker", "Kubernetes"],
+  },
+  {
+    title: "Entrega e observabilidade",
+    description:
+      "Pipelines que testam e publicam, e métricas que mostram o que o sistema faz em produção.",
+    icon: "layers",
+    items: ["GitHub Actions", "Jenkins", "Prometheus", "Linux / eBPF", "Vercel / Render / Railway"],
   },
 ];
 
@@ -111,6 +118,16 @@ export const PROJECTS: Project[] = [
     ],
     tags: ["eBPF", "C", "libbpf", "Python", "BCC", "Docker", "Linux"],
     github: "https://github.com/joaopedroplinta/ebpf-scitec",
+  },
+  {
+    featured: false,
+    id: "tcc-monitoramento",
+    category: "Pesquisa — TCC",
+    title: "TCC: monitoramento de VNF",
+    description:
+      "Benchmark que compara o overhead de eBPF, Sysstat e Prometheus ao monitorar um WAF virtualizado, com 360 execuções reprodutíveis.",
+    tags: ["eBPF", "Sysstat", "Prometheus", "Python", "Docker", "Linux"],
+    github: "https://github.com/joaopedroplinta/vnf-monitoring-benchmark",
   },
   {
     featured: false,
