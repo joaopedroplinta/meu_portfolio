@@ -804,6 +804,7 @@ main:focus {
 }
 .about-portrait img {
   width: 100%;
+  height: auto;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 16px;
@@ -1519,6 +1520,9 @@ button.s-link {
   }
 }
 @media (max-width: 560px) {
+  .about-portrait {
+    max-width: min(68%, 260px);
+  }
   .contact-email {
     font-size: 4.7vw;
     overflow-wrap: normal;
