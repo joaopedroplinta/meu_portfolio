@@ -1432,7 +1432,11 @@ button.s-link {
   }
   .about-portrait {
     position: static;
-    max-width: 420px;
+  }
+  /* Empilhado, a foto vira uma faixa larga cortada no rosto, em vez de um quadrado enorme. */
+  .about-portrait img {
+    aspect-ratio: 16 / 9;
+    object-position: center 28%;
   }
   .others li {
     grid-template-columns: minmax(0, 1fr) auto;
@@ -1520,9 +1524,6 @@ button.s-link {
   }
 }
 @media (max-width: 560px) {
-  .about-portrait {
-    max-width: min(68%, 260px);
-  }
   .contact-email {
     font-size: 4.7vw;
     overflow-wrap: normal;
