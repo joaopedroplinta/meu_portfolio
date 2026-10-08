@@ -6,7 +6,7 @@ import { useActiveSection } from "../hooks";
 import { ThemeToggle } from "./ThemeToggle";
 
 const NAV = [
-  { id: "trabalho", label: "Trabalho" },
+  { id: "trabalho", label: "Trabalhos" },
   { id: "sobre", label: "Sobre" },
   { id: "ferramentas", label: "Ferramentas" },
   { id: "certificados", label: "Certificados" },
