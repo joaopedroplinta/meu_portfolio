@@ -124,6 +124,7 @@ export const PROJECTS: Project[] = [
     description:
       "Benchmark que compara o overhead de eBPF, Sysstat, Prometheus e Docker ao monitorar um WAF virtualizado, com 480 execuções reprodutíveis.",
     tags: ["eBPF", "Sysstat", "Prometheus", "Python", "Docker", "Linux"],
+    demo: "https://vnf-lab.up.railway.app/",
     github: "https://github.com/joaopedroplinta/vnf-monitoring-benchmark",
   },
   {
