@@ -10,7 +10,7 @@ A abertura é uma capa de revista: o nome "Pinguim" (o apelido, e o pinguim que 
   - **Plana**, SaaS de agendamentos em produção;
   - **Hackathon IFPR**, plataforma para operar um evento de ponta a ponta;
   - **Minicurso eBPF**, extensão apresentada no SciTec do IFPR;
-  - **TCC**, benchmark de overhead de eBPF, Sysstat e Prometheus.
+  - **TCC**, benchmark de overhead de eBPF, Sysstat, Prometheus e Docker.
 - Scroll narrativo na seção de trabalho, prévia da tela que segue o mouse nas chamadas da capa e carrossel de telas no celular.
 - Tema claro e escuro, que respeita a preferência do sistema e `prefers-reduced-motion`.
 - Open Graph para prévia de compartilhamento, favicon e página 404.
