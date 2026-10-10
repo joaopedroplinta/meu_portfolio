@@ -138,11 +138,13 @@ const ARROWS = [
   "M134 30c-20-8-44-12-66-6-21 5-40 4-58-2",
   "M134 8c-12 18-34 34-60 36-24 2-46-8-64-22",
   "M134 14c-16 10-38 26-62 26-26 0-48-8-62-20",
+  "M134 40c-16 2-36 0-58-8C54 24 30 30 10 22",
 ];
 
 const coverLine: Record<string, string> = {
   plana: "Um SaaS do banco de dados ao deploy",
   hackathon: "O sistema de um evento inteiro",
+  oficinaflow: "Do balcão à bancada, sem o estoque mentir",
   "ebpf-scitec": "Olhando por dentro do kernel",
   "tcc-monitoramento": "Quanto custa monitorar uma rede",
 };

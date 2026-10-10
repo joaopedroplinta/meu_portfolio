@@ -431,16 +431,20 @@ main:focus {
   grid-column: 1;
   grid-row: 1;
 }
-.cover-lines li:nth-child(4) {
+.cover-lines li:nth-child(3) {
   grid-column: 1;
   grid-row: 2;
+}
+.cover-lines li:nth-child(5) {
+  grid-column: 1;
+  grid-row: 3;
 }
 .cover-lines li:nth-child(2) {
   grid-column: 3;
   grid-row: 1;
   text-align: right;
 }
-.cover-lines li:nth-child(3) {
+.cover-lines li:nth-child(4) {
   grid-column: 3;
   grid-row: 2;
   text-align: right;
@@ -451,7 +455,7 @@ main:focus {
   max-width: 100%;
 }
 .cover-lines li:nth-child(2),
-.cover-lines li:nth-child(3) {
+.cover-lines li:nth-child(4) {
   justify-self: end;
 }
 .cover-arrow {
@@ -478,12 +482,10 @@ main:focus {
   }
 }
 /* Setas saem do pinguim e apontam para cada chamada. */
-.cover-lines li:nth-child(1) .cover-arrow,
-.cover-lines li:nth-child(4) .cover-arrow {
+.cover-lines li:nth-child(odd) .cover-arrow {
   left: calc(100% + 16px);
 }
-.cover-lines li:nth-child(2) .cover-arrow,
-.cover-lines li:nth-child(3) .cover-arrow {
+.cover-lines li:nth-child(even) .cover-arrow {
   right: calc(100% + 16px);
   transform: scaleX(-1);
 }
