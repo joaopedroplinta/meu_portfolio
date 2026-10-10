@@ -191,7 +191,7 @@ function Work() {
       <div className="s-wrap">
         <div className="s-heading">
           <h2 id="work-title">Trabalhos selecionados</h2>
-          <p>Quatro projetos contados em detalhe: o problema, as decisões e o que ficou pronto.</p>
+          <p>Cinco projetos contados em detalhe: o problema, as decisões e o que ficou pronto.</p>
         </div>
         {FEATURED.map((project) => (
           <article key={project.id} className="work-item" aria-labelledby={`work-${project.id}`}>

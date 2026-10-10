@@ -9,6 +9,7 @@ A abertura é uma capa de revista: o nome "Pinguim" (o apelido, e o pinguim que 
 - **Estudos de caso** em `/projetos/:slug`, com decisões, números conferidos nos repositórios e telas reais (com dados de demonstração):
   - **Plana**, SaaS de agendamentos em produção;
   - **Hackathon IFPR**, plataforma para operar um evento de ponta a ponta;
+  - **OficinaFlow**, ordens de serviço com orçamento por versão e estoque coerente sob concorrência;
   - **Minicurso eBPF**, extensão apresentada no SciTec do IFPR;
   - **TCC**, benchmark de overhead de eBPF, Sysstat, Prometheus e Docker.
 - Scroll narrativo na seção de trabalho, prévia da tela que segue o mouse nas chamadas da capa e carrossel de telas no celular.

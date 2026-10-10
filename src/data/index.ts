@@ -66,6 +66,22 @@ export interface Project {
 export const PROJECTS: Project[] = [
   {
     featured: true,
+    id: "oficinaflow",
+    category: "Gestão de assistência técnica",
+    title: "OficinaFlow",
+    description:
+      "Ordens de serviço do recebimento à entrega, com orçamento por versão e um estoque que se mantém coerente mesmo com duas pessoas trabalhando ao mesmo tempo.",
+    highlights: [
+      "Aprovação do cliente ligada a uma versão do orçamento, que não pode ser alterada depois de emitida",
+      "Reserva de peças tudo ou nada e estoque como livro-razão, sem alterar nem apagar registros",
+      "Onze classes de teste de concorrência em PostgreSQL, integração contínua e deploy na Railway",
+    ],
+    tags: ["Laravel", "React", "TypeScript", "PostgreSQL", "Tailwind", "Playwright"],
+    demo: "https://oficinaflow-production.up.railway.app",
+    github: "https://github.com/joaopedroplinta/oficinaflow",
+  },
+  {
+    featured: true,
     id: "hackathon",
     category: "Plataforma de eventos",
     title: "Hackathon IFPR",
