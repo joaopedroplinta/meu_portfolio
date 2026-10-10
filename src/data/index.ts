@@ -115,7 +115,7 @@ export const PROJECTS: Project[] = [
       "Tailwind",
       "Docker",
     ],
-    demo: "https://planaapp.com.br/",
+    demo: "https://www.planaapp.com.br/",
   },
   {
     featured: false,
