@@ -39,7 +39,7 @@ export const FEATURED: Featured[] = [
       src: "/plana/dashboard.webp",
       alt: "Painel do Plana com receita diária, agendamentos por status e serviços mais procurados",
     },
-    product: "https://planaapp.com.br/",
+    product: "https://www.planaapp.com.br/",
   },
   {
     id: "hackathon",
