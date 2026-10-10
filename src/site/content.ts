@@ -62,6 +62,27 @@ export const FEATURED: Featured[] = [
     },
   },
   {
+    id: "oficinaflow",
+    slug: "oficinaflow",
+    name: "OficinaFlow",
+    kind: "Ordens de serviço com estoque coerente",
+    summary:
+      "Do recebimento à entrega de um equipamento: diagnóstico, orçamento por versão, aprovação do cliente, reserva de peças e reparo. Projetei e construí sozinho.",
+    facts: [
+      { label: "Autoria", value: "Projeto individual, 179 commits" },
+      { label: "Orçamento", value: "A aprovação vale para uma versão, e versão emitida não muda" },
+      { label: "Estoque", value: "Livro-razão sem UPDATE nem DELETE, reserva tudo ou nada" },
+      { label: "Qualidade", value: "392 testes, 11 classes de concorrência em PostgreSQL" },
+    ],
+    panel: "#cfe0e3",
+    panelInk: "#0b3640",
+    image: {
+      src: "/oficinaflow/ordens.webp",
+      alt: "Área de ordens do OficinaFlow com pendências da oficina e a lista de equipamentos",
+    },
+    product: "https://oficinaflow-production.up.railway.app",
+  },
+  {
     id: "ebpf-scitec",
     slug: "ebpf-scitec",
     name: "Minicurso eBPF",
