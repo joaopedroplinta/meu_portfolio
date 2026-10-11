@@ -833,7 +833,7 @@ main:focus {
 .about-timeline li {
   position: relative;
   display: grid;
-  grid-template-columns: 150px minmax(0, 1fr);
+  grid-template-columns: 175px minmax(0, 1fr);
   gap: 40px;
   padding: 0 0 32px;
 }
@@ -845,7 +845,7 @@ main:focus {
   content: "";
   position: absolute;
   top: 6px;
-  left: 150px;
+  left: 175px;
   z-index: 1;
   width: 11px;
   height: 11px;
@@ -863,7 +863,7 @@ main:focus {
   position: absolute;
   top: 17px;
   bottom: -6px;
-  left: 150px;
+  left: 175px;
   width: 2px;
   margin-left: 18.5px;
   background: color-mix(in srgb, var(--muted) 45%, transparent);
