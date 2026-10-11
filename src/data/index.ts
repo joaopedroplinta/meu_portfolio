@@ -188,12 +188,12 @@ export interface TimelineItem {
 export const TIMELINE: TimelineItem[] = [
   {
     year: "Jul 2025 — presente",
-    title: "Estágio em desenvolvimento Full Stack",
+    title: "Estágio em desenvolvimento Full Stack · Celepar",
     desc: "Atuação como estagiário em desenvolvimento full-stack, trabalhando com a stack PHP, JavaScript e PostgreSQL. Desde a concepção de novas funcionalidades até a entrega em produção, passando por testes e integração contínua. Reuniões com clientes, prototipagem, planejamento e documentação também fazem parte do dia a dia.",
   },
   {
     year: "Out 2024 — Jun 2025",
-    title: "Estágio em suporte técnico",
+    title: "Estágio em suporte técnico · Polícia Científica do Paraná",
     desc: "Atuação como estagiário em suporte técnico de sistemas e hardware. Atendimento a usuários, resolução de problemas e manutenção de equipamentos.",
   },
   {
