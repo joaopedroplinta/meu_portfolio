@@ -105,7 +105,7 @@ export const PROJECTS: Project[] = [
     highlights: [
       "Agendamento online com isolamento de dados entre empresas, usando policies e scopes",
       "Pacotes de sessões, planos mensais e pagamento via PIX/cartão com webhook em fila",
-      "Entrega em produção com Docker, CI, testes E2E, Render e Neon",
+      "Entrega em produção com Docker, CI, testes E2E e Railway",
     ],
     tags: [
       "Next.js",

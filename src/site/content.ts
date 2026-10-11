@@ -31,7 +31,7 @@ export const FEATURED: Featured[] = [
       { label: "Autoria", value: "Projeto individual, 68 commits" },
       { label: "Arquitetura", value: "Multi-tenant, com isolamento por global scope" },
       { label: "Pagamentos", value: "PIX, cartão e webhook processado em fila" },
-      { label: "Entrega", value: "Render + Neon, CI com testes E2E" },
+      { label: "Entrega", value: "Railway com fila e agendador, CI com testes E2E" },
     ],
     panel: "#c9ddd3",
     panelInk: "#0f2a20",
