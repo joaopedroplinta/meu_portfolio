@@ -60,6 +60,7 @@ export const FEATURED: Featured[] = [
       src: "/hackathon/jurados.webp",
       alt: "Tela de distribuição de jurados do Hackathon IFPR, com a carga de cada jurado",
     },
+    product: "https://hackathon-ifpr-production.up.railway.app/",
   },
   {
     id: "oficinaflow",
