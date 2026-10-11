@@ -93,6 +93,7 @@ export const PROJECTS: Project[] = [
       "Check-in por QR code, voto popular, certificados em PDF e plano de contingência para o dia do evento",
     ],
     tags: ["Laravel", "Inertia.js", "React", "TypeScript", "PostgreSQL"],
+    demo: "https://hackathon-ifpr-production.up.railway.app",
     github: "https://github.com/joaopedroplinta/hackathon-ifpr",
   },
   {
