@@ -187,9 +187,9 @@ export interface TimelineItem {
 
 export const TIMELINE: TimelineItem[] = [
   {
-    year: "Jul 2025 — presente",
+    year: "Jul 2025 — Out 2026",
     title: "Estágio em desenvolvimento Full Stack · Celepar",
-    desc: "Atuação como estagiário em desenvolvimento full-stack, trabalhando com a stack PHP, JavaScript e PostgreSQL. Desde a concepção de novas funcionalidades até a entrega em produção, passando por testes e integração contínua. Reuniões com clientes, prototipagem, planejamento e documentação também fazem parte do dia a dia.",
+    desc: "Estágio principalmente em um sistema de gestão de políticas culturais do governo estadual. Mais de 780 commits entre SVN e Git e 177 merge requests, com correções de regras de negócio, novas telas, relatórios em PDF e scripts de banco de dados. Estimei o esforço das demandas por pontos de função: cerca de 70 PF em 11 entregas. Também contribuí com um sistema de gestão de resíduos em Java, organizando o armazenamento de anexos e corrigindo o fluxo de uma tela. Stack: PHP, Java, PostgreSQL, Smarty, JSF e jQuery, acompanhando o ciclo do desenvolvimento à homologação.",
   },
   {
     year: "Out 2024 — Jun 2025",
