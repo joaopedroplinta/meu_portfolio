@@ -189,7 +189,7 @@ export const TIMELINE: TimelineItem[] = [
   {
     year: "Jul 2025 — Out 2026",
     title: "Estágio em desenvolvimento Full Stack · Celepar",
-    desc: "Estágio principalmente em um sistema de gestão de políticas culturais do governo estadual. Mais de 780 commits entre SVN e Git e 177 merge requests, com correções de regras de negócio, novas telas, relatórios em PDF e scripts de banco de dados. Estimei o esforço das demandas por pontos de função: cerca de 70 PF em 11 entregas. Também contribuí com um sistema de gestão de resíduos em Java, organizando o armazenamento de anexos e corrigindo o fluxo de uma tela. Stack: PHP, Java, PostgreSQL, Smarty, JSF e jQuery, acompanhando o ciclo do desenvolvimento à homologação.",
+    desc: "Estágio nos sistemas Sic.Cultura, Sic.Esporte e TGA do CCTG, de gestão de políticas culturais e esportivas do governo estadual. Mais de 780 commits entre SVN e Git e 177 merge requests, com correções de regras de negócio, novas telas, relatórios em PDF e scripts de banco de dados. Estimei o esforço das demandas por pontos de função: cerca de 70 PF em 11 entregas. Também contribuí com um sistema de gestão de resíduos em Java, organizando o armazenamento de anexos e corrigindo o fluxo de uma tela. Stack: PHP, Java, PostgreSQL, Smarty, JSF e jQuery, acompanhando o ciclo do desenvolvimento à homologação.",
   },
   {
     year: "Out 2024 — Jun 2025",
