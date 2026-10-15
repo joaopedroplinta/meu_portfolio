@@ -194,8 +194,8 @@ export const TIMELINE: TimelineItem[] = [
   },
   {
     year: "Out 2024 — Jun 2025",
-    title: "Estágio em suporte técnico · Polícia Científica do Paraná",
-    desc: "Atuação como estagiário em suporte técnico de sistemas e hardware. Atendimento a usuários, resolução de problemas e manutenção de equipamentos.",
+    title: "Estágio em T.I / QA e Infraestrutura · Polícia Científica do Paraná",
+    desc: "Testes manuais dos sistemas usados em processos forenses a cada ciclo de release, com documentação e priorização dos bugs. Atuação na infraestrutura da Divisão de Tecnologia (virtualização, redes, servidores, backup e monitoramento) e suporte N1 aos usuários do GDL.",
   },
   {
     year: "2023 — 2026",
